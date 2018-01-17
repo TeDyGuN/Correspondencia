@@ -32,3 +32,13 @@ Route::Resource('users', 'UserController');
 
 //RECIBIDOS
 Route::get('/correspondencia/recibida', 'Correspondencia\CorrespondenciaController@getRecibidoView');
+
+Route::resource('recibidos', 'RecibidosController');
+
+
+Route::get('/recibido','DataTables\RecibidoController@getIndex');
+Route::get('/anyData','DataTables\RecibidoController@anyData')->name('recibido.data');
+// Route::controller('recibido', '', [
+//     'anyData'  => 'recibido.data',
+//     'getIndex' => 'recibido',
+// ]);

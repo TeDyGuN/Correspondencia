@@ -54,7 +54,7 @@
                 <a href="#"><i class="fa fa-lg fa-fw fa-folder"></i> <span class="menu-item-parent">Correspondencia</span></a>
                 <ul>
                     <li>
-                        <a href="{{ url('/correspondencia/recibida') }}">
+                        <a href="{{ url('/recibido') }}">
                           <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
                           <span class="menu-item-parent">Recibida</span>
                           <span class="badge bg-color-red pull-right inbox-badge">9</span>

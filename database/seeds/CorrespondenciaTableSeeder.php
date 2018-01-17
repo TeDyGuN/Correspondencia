@@ -11,6 +11,6 @@ class CorrespondenciaTableSeeder extends Seeder
      */
      public function run()
      {
-       $users = factory(App\Recibidos::class, 3)->create();
+       $users = factory(App\Recibidos::class, 50)->create();
      }
 }
