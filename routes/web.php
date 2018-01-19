@@ -33,6 +33,8 @@ Route::Resource('users', 'UserController');
 //RECIBIDOS
 Route::get('/correspondencia/recibida', 'Correspondencia\CorrespondenciaController@getRecibidoView');
 Route::get('/correspondencia/datos/{id}', 'Correspondencia\CorrespondenciaController@getDatos');
+Route::get('/correspondencia/usuarios', 'Correspondencia\CorrespondenciaController@usuarios');
+Route::post('/correspondencia/nuevo', 'Correspondencia\CorrespondenciaController@nuevo');
 
 Route::resource('recibidos', 'RecibidosController');
 

@@ -26,9 +26,26 @@ class CorrespondenciaController extends Controller{
 
 
 
-      $correspondencia = Recibidos::where('id', '=', $id)
+      $correspondencia = Recibidos::join('users', 'recibidos.id_user', '=', 'users.id')
+                      ->where('recibidos.id', '=', $id)
                       ->get();
       return $correspondencia;
+  }
+  public function usuarios(){
+      $usuarios = User::get();
+      return $usuarios;
+  }
+  public function nuevo(Request $request)
+  {
+    $cor = new Recibidos();
+    $cor->tipo = $request->c_tipo;
+    $cor->f_creacion = $request->c_fecha;
+    $cor->remitente = $request->c_remitente;
+    $cor->referencia = $request->c_referencia;
+    $cor->adjunto = $request->c_adjunto;
+    $cor->save();
+    // $message = 'llegame esta';
+    //    return $request;
   }
 	// public function saveRegistro(Request $request){
 	// 	$user = new User();
