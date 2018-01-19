@@ -23,11 +23,7 @@ class RecibidoController extends Controller
     $rec = Recibidos::select();
     return Datatables::of($rec)
     ->addColumn('action', function ($r) {
-                    return '<a id='.$r->id.' class="btnbtn btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i>Ver</a>
-                    <form id="form-ver" role="form" method="POST" action="{{ route(\'users.destroy\', \':USER_ID\') }}">
-                        <input name="_method" type="hidden"  value="DELETE">
-                        <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                    </form>
+                    return '<a id='.$r->id.'  class="btnbtn btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i>Ver</a>
                     <a href="#" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-wrench"></i> Modificar</a>
                     <a href="#" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-sort"></i> Hoja de Ruta</a>';
                 })

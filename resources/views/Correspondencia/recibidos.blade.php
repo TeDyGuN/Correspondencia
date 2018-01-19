@@ -8,10 +8,27 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Modal title</h4>
+            <h4 class="modal-title" id="titulo"></h4>
           </div>
           <div class="modal-body">
-              <input type="text" name="codigo" id="codigo" disabled>
+            <div class="form-group">
+                <label for="rem" class="col-md-4 control-label">Remitente</label>
+                <div class="col-md-8">
+                    <input id="rem" type="text" class="form-control" name="rem" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ref" class="col-md-4 control-label">Referencia</label>
+                <div class="col-md-8">
+                    <input id="ref" type="text" class="form-control" name="ref" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="estado" class="col-md-4 control-label">Estado</label>
+                <div class="col-md-8">
+                    <input id="estado" type="text" class="form-control" name="estado" disabled>
+                </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -77,26 +94,24 @@
 
         });
         $('#users-table tbody').on('click', 'td>a.btnbtn', function () {
-                        // var table = $('#users-table').DataTable();
-                        // console.log( table.row(9).data() );
-                        //
-                        // event.preventDefault();
-               // var row = $(this).parents('tr');
-               var id = $(this).attr('id') ;
-               var form = $('#form-ver');
-               var url = form.attr('action').replace(':USER_ID', id);
-               console.log(url);
-               // var data = form.serialize();
-               // row.fadeOut();
-               // $.post(url, data, function(result)
-               // {
-               //     alert(result);
-               // }).fail(function()
-               // {
-               //     alert('El Usuario No fue Eliminado');
-               //     row.show();
-               // });
-           });
+          event.preventDefault();
+          var id = $(this).attr('id') ;
+
+          var url =  "{{ url('correspondencia/datos/$(id)')}}".replace('$(id)', id);
+          console.log(url);
+          $.get(url, function(data, status)
+          {
+              var ps = data[0].remitente;
+              $('#rem').val(ps);
+              $('#titulo').text(data[0].codigo);
+              $('#ref').val(data[0].referencia);
+              $('#estado').val(data[0].estado);
+             console.log(data);
+          }).fail(function()
+          {
+             console.log("Error");
+          });
+        });
         // $('#myModal').on('show.bs.modal', function (e) {
         //
         //     console.log( $(this).attr('id') );

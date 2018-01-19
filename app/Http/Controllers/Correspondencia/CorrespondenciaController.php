@@ -22,6 +22,14 @@ class CorrespondenciaController extends Controller{
     $correspondencia = Recibidos::get();
   	return view('Correspondencia/recibida', compact('correspondencia'));
   }
+  public function getDatos($id){
+
+
+
+      $correspondencia = Recibidos::where('id', '=', $id)
+                      ->get();
+      return $correspondencia;
+  }
 	// public function saveRegistro(Request $request){
 	// 	$user = new User();
 	// 	$user->nombre = $request->nombres;
