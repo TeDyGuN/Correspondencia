@@ -3,6 +3,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\User;
 use App\Recibidos;
+use App\Proceso;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
@@ -25,8 +26,12 @@ class CorrespondenciaController extends Controller{
   public function getDatos($id){
 
 
-
-      $correspondencia = Recibidos::join('users', 'recibidos.id_user', '=', 'users.id')
+      $correspondencia = Recibidos::join('procesos as p', 'recibidos.id', '=', 'p.id_recibido')
+                      ->join('users as u', 'p.id_user_destino', '=', 'u.id')
+                      ->select('remitente', 'recibidos.codigo as codigo',
+                      'recibidos.referencia as referencia', 'recibidos.estado as estado',
+                      'recibidos.tipo as tipo', 'recibidos.f_creacion as f_creacion',
+                      'recibidos.adjunto as adjunto', 'u.nombre as nombre', 'u.paterno as paterno', 'observacion')
                       ->where('recibidos.id', '=', $id)
                       ->get();
       return $correspondencia;
@@ -35,17 +40,55 @@ class CorrespondenciaController extends Controller{
       $usuarios = User::get();
       return $usuarios;
   }
+  public function eliminar($id){
+    $flight = Recibidos::find($id);
+    $flight->delete();
+    $message = 'Se Elimino al Usuario de nuestros registros';
+    return $message;
+  }
   public function nuevo(Request $request)
   {
+    //dd($request);
+    $c= Recibidos::orderBy('id_recibido', 'desc')
+                      ->first();
+    $id = $c->id_recibido + 1;
+
+    //Archivo
+    //obtenemos el campo file definido en el formulario
+    $file = $request->file('archivo');
+    //obtenemos el nombre del archivo
+    $nombre = $file->getClientOriginalName();
+    $url = storage_path('app/').$nombre;
+    \Storage::disk('local')->put($nombre,  \File::get($file));
+
+
     $cor = new Recibidos();
+    $cor->id_recibido = $id;
     $cor->tipo = $request->c_tipo;
     $cor->f_creacion = $request->c_fecha;
+    $cor->codigo = 'R-' . str_pad($id, 3, '0', STR_PAD_LEFT);
     $cor->remitente = $request->c_remitente;
     $cor->referencia = $request->c_referencia;
-    $cor->adjunto = $request->c_adjunto;
+    $cor->adjunto = 'Carta';
+    $cor->file = $nombre;
+    $cor->observacion = $request->c_obs;
+    $cor->estado = $request->c_estado;
+    $cor->accion = $request->c_accion;
     $cor->save();
-    // $message = 'llegame esta';
-    //    return $request;
+
+    $idd= Recibidos::where('id_recibido', $id)
+                      ->first();
+
+    $cor = new Proceso();
+    $cor->accion = $request->c_accion;
+    $cor->estado = $request->c_estado;
+    $cor->referencia = $request->c_referencia;
+    $cor->id_recibido = $idd->id;
+    $cor->id_user = Auth::id();
+    $cor->id_user_destino = $request->c_der;
+    $cor->save();
+
+    return back()->withInput();
   }
 	// public function saveRegistro(Request $request){
 	// 	$user = new User();

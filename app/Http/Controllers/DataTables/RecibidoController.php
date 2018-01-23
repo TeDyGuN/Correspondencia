@@ -20,11 +20,12 @@ class RecibidoController extends Controller
   */
   public function anyData()
   {
-    $rec = Recibidos::select();
+    $rec = Recibidos::orderBy('id_recibido', 'desc')
+    ->select();
     return Datatables::of($rec)
     ->addColumn('action', function ($r) {
                     return '<a id='.$r->id.'  class="btnbtn btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i>Ver</a>
-                    <a href="#" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-wrench"></i> Modificar</a>
+                    <a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="modal" data-target="#mod_eliminar"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>
                     <a href="#" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-sort"></i> Hoja de Ruta</a>';
                 })
 

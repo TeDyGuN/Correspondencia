@@ -178,11 +178,10 @@
 
                             <div class="col-md-6">
                               <select class="form-control" name="c_accion">
-                                  <option value="1">Revisar Informacion</option>
-                                  <option value="2">Derivar</option>
-                                  <option value="3">Revisar Consultoria</option>
-                                  <option value="4">Registrar Correspondencia</option>
-                                  <option value="5">Archivar</option>
+                                  <option value="Rev. Informacion">Revisar Informacion</option>
+                                  <option value="Derivar">Derivar</option>
+                                  <option value="Reg. Correspondencia">Registrar Correspondencia</option>
+                                  <option value="Archivar">Archivar</option>
                               </select>
                             </div>
                         </div>
@@ -204,6 +203,29 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade" id="mod_eliminar" tabindex="-1" role="dialog" aria-labelledby="creacionLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center" >Eliminar Correspondencia</h4>
+          </div>
+          <div class="modal-body">
+            <input name="_method" type="hidden"  value="DELETE" id="input_eliminar">
+              <form class="form-horizontal" id="form-delete" role="form" method="POST" action="{{ route('apis.destroy', ':USER_ID') }}">
+                <input name="_method" type="hidden"  value="DELETE">
+                <input name="_token" type="hidden" value="{{ csrf_token() }}">
+
+              </form>
+              <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal" id="btn-eliminarr">Eliminar</button>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 
           </div>
         </div><!-- /.modal-content -->
@@ -247,13 +269,13 @@
             ajax: 'https://datatables.yajrabox.com/eloquent/add-edit-remove-column-data',
             ajax: '{!! route('recibido.data') !!}',
             columns: [
-                { data: 'codigo', name: 'codigo' },
-                { data: 'adjunto', name: 'adjunto' },
-                { data: 'f_creacion', name: 'f_creacion' },
-                { data: 'remitente', name: 'remitente' },
-                { data: 'referencia', name: 'referencia' },
-                { data: 'estado', name: 'estado' },
-                { data: 'action', name: 'action', orderable: false, searchable: false}
+                { data: 'codigo', name: 'codigo', width: '5%'},
+                { data: 'adjunto', name: 'adjunto' , width: '10%'},
+                { data: 'f_creacion', name: 'f_creacion' , width: '10%'},
+                { data: 'remitente', name: 'remitente' , width: '20%'},
+                { data: 'referencia', name: 'referencia' , width: '30%'},
+                { data: 'estado', name: 'estado' , width: '10%'},
+                { data: 'action', name: 'action', orderable: false, searchable: false, width: '15%'}
             ],
             dom: 'Bfrtip',
             buttons: [
@@ -279,14 +301,59 @@
               $('#estado').text(data[0].estado);
               $('#tipo').text(data[0].tipo);
               $('#fecha').text(data[0].f_creacion);
-              $('#file').text(data[0].file);
+              $('#file').text(data[0].adjunto);
               $('#derivado').text(data[0].nombre + " " + data[0].paterno);
               $('#obs').text(data[0].observacion);
-             console.log(data);
           }).fail(function()
           {
              console.log("Error");
           });
+        });
+        $('#users-table tbody').on('click', 'td>a.btneliminar', function () {
+          event.preventDefault();
+          var id = $(this).attr('id');
+
+          id = id.substring(1);
+          $('#input_eliminar').val(id);
+
+          // $.get(url, function(data, status)
+          // {
+          //     var ps = data[0].remitente;
+          //     $('#rem').text(ps);
+          //     $('#titulo').text(data[0].codigo);
+          //     $('#ref').text(data[0].referencia);
+          //     $('#estado').text(data[0].estado);
+          //     $('#tipo').text(data[0].tipo);
+          //     $('#fecha').text(data[0].f_creacion);
+          //     $('#file').text(data[0].adjunto);
+          //     $('#derivado').text(data[0].nombre + " " + data[0].paterno);
+          //     $('#obs').text(data[0].observacion);
+          //    console.log(data);
+          // }).fail(function()
+          // {
+          //    console.log("Error");
+          // });
+        });
+        $('#btn-eliminarr').on('click', function () {
+            event.preventDefault();
+
+            var id = $('#input_eliminar').val();
+            var row = $('#e'+id).parents('tr');
+            var form = $('#form-delete');
+            var url = form.attr('action').replace(':USER_ID', id);
+            var data = form.serialize();
+
+            //var url =  "{{ url('correspondencia/eliminar/$(id)')}}".replace('$(id)', id);
+            //console.log(url);
+
+            $.post(url, data, function(result)
+            {
+              row.fadeOut();
+              console.log(result);
+            }).fail(function()
+            {
+                row.show();
+            });
         });
         $('#btn-creacion').on('click', function () {
           event.preventDefault();

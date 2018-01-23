@@ -33,11 +33,13 @@ Route::Resource('users', 'UserController');
 //RECIBIDOS
 Route::get('/correspondencia/recibida', 'Correspondencia\CorrespondenciaController@getRecibidoView');
 Route::get('/correspondencia/datos/{id}', 'Correspondencia\CorrespondenciaController@getDatos');
+Route::delete('/correspondencia/eliminar/{id}', 'Correspondencia\CorrespondenciaController@eliminar');
 Route::get('/correspondencia/usuarios', 'Correspondencia\CorrespondenciaController@usuarios');
 Route::post('/correspondencia/nuevo', 'Correspondencia\CorrespondenciaController@nuevo');
 
 Route::resource('recibidos', 'RecibidosController');
 
+Route::Resource('apis', 'ApiController');
 
 Route::get('/recibido','DataTables\RecibidoController@getIndex');
 Route::get('/anyData','DataTables\RecibidoController@anyData')->name('recibido.data');
