@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Recibidos;
+use App\Proceso;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -83,9 +84,14 @@ class ApiController extends Controller
      */
     public function destroy($id)
     {
+      $procesos = Proceso::where('id_recibido', $id)
+                            ->get();
+      foreach ($procesos as $p) {
+        $f = Proceso::find($p->id);
+        $f->delete();
+      }
       $flight = Recibidos::find($id);
       $flight->delete();
       $message = 'Se Elimino al Usuario de nuestros registros';
-      return back()->withInput();
     }
 }

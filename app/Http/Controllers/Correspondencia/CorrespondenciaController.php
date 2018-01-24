@@ -46,6 +46,37 @@ class CorrespondenciaController extends Controller{
     $message = 'Se Elimino al Usuario de nuestros registros';
     return $message;
   }
+  public function getRuta($id){
+    $aso = Recibidos::select('codigo', 'id', 'estado')
+                ->where('id', $id)
+                ->first();
+    $procesos = Proceso::join('users as u1', 'procesos.id_user', 'u1.id')
+                ->join('users as u2', 'procesos.id_user_destino', 'u2.id')
+                ->select('u1.nombre as nnombre', 'u1.paterno as npaterno',
+                'u2.nombre as mnombre', 'u2.paterno as mpaterno', 'accion',
+                'procesos.created_at as fecha', 'referencia', 'estado')
+                ->where('id_recibido', $id)
+                ->get();
+    $users = User::get();
+    return view('Correspondencia/ruta', compact('users', 'aso', 'procesos'));
+
+  }
+  public function saveRuta(Request $request){
+    $cor = new Proceso();
+    $cor->accion = $request->c_accion;
+    $cor->estado = $request->c_estado;
+    $cor->referencia = $request->seguimiento;
+    $cor->id_recibido = $request->_id;
+    $cor->id_user = Auth::id();
+    $cor->id_user_destino = $request->c_der;
+    $cor->save();
+
+    $rec = App\Recibidos::find($request->_id);
+    $rec->estado = $request->c_estado;
+    $rec->save();
+
+    return back()->withInput();
+  }
   public function nuevo(Request $request)
   {
     //dd($request);
@@ -87,6 +118,7 @@ class CorrespondenciaController extends Controller{
     $cor->id_user = Auth::id();
     $cor->id_user_destino = $request->c_der;
     $cor->save();
+
 
     return back()->withInput();
   }

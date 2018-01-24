@@ -37,6 +37,10 @@ Route::delete('/correspondencia/eliminar/{id}', 'Correspondencia\Correspondencia
 Route::get('/correspondencia/usuarios', 'Correspondencia\CorrespondenciaController@usuarios');
 Route::post('/correspondencia/nuevo', 'Correspondencia\CorrespondenciaController@nuevo');
 
+//Ruta
+Route::get('/correspondencia/ruta/{id}','Correspondencia\CorrespondenciaController@getRuta');
+Route::post('/correspondencia/rutanuevo', 'Correspondencia\CorrespondenciaController@saveRuta');
+
 Route::resource('recibidos', 'RecibidosController');
 
 Route::Resource('apis', 'ApiController');
