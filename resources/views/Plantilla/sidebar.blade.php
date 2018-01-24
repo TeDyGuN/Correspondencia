@@ -54,18 +54,25 @@
                 <a href="#"><i class="fa fa-lg fa-fw fa-folder"></i> <span class="menu-item-parent">Correspondencia</span></a>
                 <ul>
                     <li>
-                        <a href="{{ url('/recibido') }}">
+                        <a href="{{ url('/pendientes') }}">
                           <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
-                          <span class="menu-item-parent">Recibida</span>
-                          <span class="badge bg-color-red pull-right inbox-badge">9</span>
+                          <span class="menu-item-parent">Recibida Pend.</span>
+                          {{-- <span class="badge bg-color-red pull-right inbox-badge">{{ $num }}</span> --}}
                         </a>
                     </li>
+                    @if (Auth::user()->ROLE == 'Admin')
+                      <li>
+                          <a href="{{ url('/recibido') }}">
+                            <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
+                            <span class="menu-item-parent">Recibida PROFIN</span>
+                          </a>
+                      </li>
+                    @endif
                     <li>
-                      <a href="{{ url('rfids') }}">
-                        <i class="fa fa-lg fa-fw fa-arrow-circle-left"></i>
-                        <span class="menu-item-parent">Enviada</span>
-                        <span class="badge bg-color-red pull-right inbox-badge">9</span>
-                      </a>
+                        <a href="{{ url('/enviado') }}">
+                          <i class="fa fa-lg fa-fw fa-arrow-circle-left"></i>
+                          <span class="menu-item-parent">Enviada</span>
+                        </a>
                     </li>
                 </ul>
             </li>

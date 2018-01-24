@@ -58,7 +58,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title text-center" >Creacion de Correspondencia</h4>
+            <h4 class="modal-title text-center" >Creacion de Correspondencia Enviada</h4>
           </div>
           <div class="modal-body">
                 @if (count($errors) > 0)
@@ -71,7 +71,7 @@
                         </ul>
                     </div>
                 @endif
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('correspondencia/nuevo') }}" enctype="multipart/form-data"  id="form-nuevo">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('enviada/nuevo') }}" enctype="multipart/form-data"  id="form-nuevo">
                         {{ csrf_field() }}
 
                         <div class="form-group">
@@ -86,16 +86,8 @@
                               </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="c_fecha" class="col-md-4 control-label">Fecha de Origen</label>
-
-                            <div class="col-md-6">
-                                <input id="c_fecha" type="date" class="form-control" name="c_fecha">
-
-                            </div>
-                        </div>
                         <div class="form-group {{ $errors->has('c_remitente') ? ' has-error' : '' }}">
-                            <label for="c_remitente" class="col-md-4 control-label">Remitente</label>
+                            <label for="c_remitente" class="col-md-4 control-label">Dirigido a</label>
 
                             <div class="col-md-6">
                                 <input id="c_remitente" type="text" class="form-control" name="c_remitente" value="{{ old('c_remitente') }}">
@@ -135,16 +127,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="c_estado" class="col-md-4 control-label">Estado </label>
-
-                            <div class="col-md-6">
-                              <select class="form-control" name="c_estado">
-                                  <option value="Abierto">Abierto</option>
-                                  <option value="Cerrado">Cerrado</option>
-                              </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="c_documento" class="col-md-4 control-label">Documento </label>
 
                             <div class="col-md-6">
@@ -166,22 +148,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="c_der" class="col-md-4 control-label">Derivado a: </label>
+                            <label for="c_der" class="col-md-4 control-label">Responsable</label>
 
                             <div class="col-md-6">
                               <select class="form-control" name="c_der" id="c_der">
-                              </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="c_accion" class="col-md-4 control-label">Accion </label>
-
-                            <div class="col-md-6">
-                              <select class="form-control" name="c_accion">
-                                  <option value="Rev. Informacion">Revisar Informacion</option>
-                                  <option value="Derivar">Derivar</option>
-                                  <option value="Reg. Correspondencia">Registrar Correspondencia</option>
-                                  <option value="Archivar">Archivar</option>
                               </select>
                             </div>
                         </div>
@@ -234,21 +204,22 @@
     <div id="ribbon">
         <ol class="breadcrumb">
             <li><a href="{{ url("home")}}">Inicio</a></li>
-            <li>Correspondencia Recibida</li>
+            <li>Correspondencia Enviada</li>
         </ol>
     </div>
     <div class="container" style="margin-top:20px;">
 
       <button type="button" class="btn btn-success" id="btn-creacion" data-toggle="modal" data-target="#creacion" name="button">Agregar</button>
-      <table class="table table-striped table-bordered" id="users-table">
+      <table class="table table-striped table-bordered" id="enviadas-table">
           <thead>
           <tr>
               <th>Codigo</th>
               <th>Tipo</th>
-              <th>Fecha</th>
-              <th>Remitente</th>
+              <th>Responsable</th>
+              <th>Dirigido a:</th>
               <th>Referencia</th>
-              <th>Estado</th>
+              <th>Fecha</th>
+              <th>Adjunto</th>
               <th>Accion</th>
           </tr>
           </thead>
@@ -264,18 +235,19 @@
 <script src="{{ asset('/vendor/datatables/buttons.server-side.js') }}"></script>
 <script>
     $(function() {
-        $('#users-table').DataTable({
+        $('#enviadas-table').DataTable({
             processing: true,
             serverSide: true,
             ajax: 'https://datatables.yajrabox.com/eloquent/add-edit-remove-column-data',
-            ajax: '{!! route('recibido.data') !!}',
+            ajax: '{!! route('enviado.data') !!}',
             columns: [
                 { data: 'codigo', name: 'codigo', width: '5%'},
                 { data: 'tipo', name: 'tipo' , width: '10%'},
-                { data: 'f_creacion', name: 'f_creacion' , width: '10%'},
-                { data: 'remitente', name: 'remitente' , width: '20%'},
-                { data: 'referencia', name: 'referencia' , width: '30%'},
-                { data: 'estado', name: 'estado' , width: '10%'},
+                { data: 'nombre', name: 'nombre' , width: '10%'},
+                { data: 'emitente', name: 'emitente' , width: '20%'},
+                { data: 'referencia', name: 'referencia' , width: '20%'},
+                { data: 'created_at', name: 'created_at' , width: '10%'},
+                { data: 'adjunto', name: 'adjunto' , width: '10%'},
                 { data: 'action', name: 'action', orderable: false, searchable: false, width: '15%'}
             ],
             dom: 'Bfrtip',

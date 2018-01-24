@@ -47,8 +47,7 @@ class CorrespondenciaController extends Controller{
     return $message;
   }
   public function getRuta($id){
-    $aso = Recibidos::select('codigo', 'id', 'estado')
-                ->where('id', $id)
+    $aso = Recibidos::where('recibidos.id', $id)
                 ->first();
     $procesos = Proceso::join('users as u1', 'procesos.id_user', 'u1.id')
                 ->join('users as u2', 'procesos.id_user_destino', 'u2.id')
@@ -71,10 +70,40 @@ class CorrespondenciaController extends Controller{
     $cor->id_user_destino = $request->c_der;
     $cor->save();
 
-    $rec = App\Recibidos::find($request->_id);
+    $rec = Recibidos::find($request->_id);
     $rec->estado = $request->c_estado;
     $rec->save();
 
+    return back()->withInput();
+  }
+  public function nuevoEnvado(Request $request)
+  {
+    //dd($request);
+    $c= Enviado::orderBy('id_enviado', 'desc')
+                      ->first();
+    $id = $c->id_recibido + 1;
+
+    //Archivo
+    //obtenemos el campo file definido en el formulario
+    $file = $request->file('archivo');
+    //obtenemos el nombre del archivo
+    $nombre = $file->getClientOriginalName();
+    $url = storage_path('app/').$nombre;
+    \Storage::disk('local')->put($nombre,  \File::get($file));
+
+
+    $cor = new Enviado();
+    $cor->id_enviado = $id;
+    $cor->tipo = $request->c_tipo;
+    $cor->codigo = 'E-' . str_pad($id, 3, '0', STR_PAD_LEFT);
+    $cor->emitente = $request->c_remitente;
+    $cor->referencia = $request->c_referencia;
+    $cor->adjunto = $request->c_adjunto;;
+    $cor->file = $nombre;
+    $cor->observacion = $request->c_obs;
+    $cor->id_user_destino = $request->c_der;
+    $cor->save();
+    
     return back()->withInput();
   }
   public function nuevo(Request $request)
@@ -100,11 +129,12 @@ class CorrespondenciaController extends Controller{
     $cor->codigo = 'R-' . str_pad($id, 3, '0', STR_PAD_LEFT);
     $cor->remitente = $request->c_remitente;
     $cor->referencia = $request->c_referencia;
-    $cor->adjunto = 'Carta';
+    $cor->adjunto = $request->c_adjunto;;
     $cor->file = $nombre;
     $cor->observacion = $request->c_obs;
     $cor->estado = $request->c_estado;
     $cor->accion = $request->c_accion;
+    $cor->id_user_destino = $request->c_der;
     $cor->save();
 
     $idd= Recibidos::where('id_recibido', $id)

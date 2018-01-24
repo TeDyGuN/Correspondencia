@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Recibidos;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,10 @@ class HomeController extends Controller
     }
     public function plantilla()
   	{
-  		return view('home');
+        // $re = Recibidos::where('id_user_destino')
+        //       ->get();
+        // $num = count($re);
+  		  // return view('home', compact('num'));
+        return view('home');
   	}
 }

@@ -31,15 +31,29 @@ Route::post('/user/saveModificarUsuario', 'UsuarioController@modificar');
 Route::Resource('users', 'UserController');
 
 //RECIBIDOS
-Route::get('/correspondencia/recibida', 'Correspondencia\CorrespondenciaController@getRecibidoView');
 Route::get('/correspondencia/datos/{id}', 'Correspondencia\CorrespondenciaController@getDatos');
+Route::get('/correspondencia/recibida', 'Correspondencia\CorrespondenciaController@getRecibidoView');
 Route::delete('/correspondencia/eliminar/{id}', 'Correspondencia\CorrespondenciaController@eliminar');
 Route::get('/correspondencia/usuarios', 'Correspondencia\CorrespondenciaController@usuarios');
 Route::post('/correspondencia/nuevo', 'Correspondencia\CorrespondenciaController@nuevo');
+//PENDIENTES
+Route::get('/pendientes','DataTables\RecibidoController@getPendientes');
 
 //Ruta
 Route::get('/correspondencia/ruta/{id}','Correspondencia\CorrespondenciaController@getRuta');
 Route::post('/correspondencia/rutanuevo', 'Correspondencia\CorrespondenciaController@saveRuta');
+
+//get archivo
+Route::get('storage/{archivo}', function ($archivo) {
+    $url = storage_path('app/').$archivo;
+    //verificamos si el archivo existe y lo retornamos
+    if (\Illuminate\Support\Facades\Storage::exists($archivo))
+    {
+        return response()->download($url);
+    }
+    //si no se encuentra lanzamos un error 404.
+    abort(404);
+});
 
 Route::resource('recibidos', 'RecibidosController');
 
@@ -47,6 +61,11 @@ Route::Resource('apis', 'ApiController');
 
 Route::get('/recibido','DataTables\RecibidoController@getIndex');
 Route::get('/anyData','DataTables\RecibidoController@anyData')->name('recibido.data');
+
+Route::get('/pendData','DataTables\RecibidoController@pendData')->name('pendientes.data');
+
+Route::get('/enviado','DataTables\EmisionController@getIndex');
+Route::get('/anyData','DataTables\EmisionController@sendData')->name('enviado.data');
 // Route::controller('recibido', '', [
 //     'anyData'  => 'recibido.data',
 //     'getIndex' => 'recibido',

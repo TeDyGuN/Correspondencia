@@ -44,7 +44,8 @@ class CreateRecibidosTable extends Migration
             $table->string('referencia');
             $table->enum('estado', ['Abierto', 'Cerrado']);
             $table->enum('accion', ['Archivar', 'Derivar', 'Reg. Correspondencia', 'Rev. Informacion']);
-
+            $table->integer('id_user_destino')->unsigned();
+            $table->foreign('id_user_destino')->references('id')->on('users');
             $table->timestamps();
         });
     }
