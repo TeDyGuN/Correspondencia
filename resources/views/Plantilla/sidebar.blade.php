@@ -53,29 +53,76 @@
             <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-folder"></i> <span class="menu-item-parent">Correspondencia</span></a>
                 <ul>
-                    <li>
-                        <a href="{{ url('/pendientes') }}">
-                          <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
-                          <span class="menu-item-parent">Recibida Pend.</span>
-                          {{-- <span class="badge bg-color-red pull-right inbox-badge">{{ $num }}</span> --}}
-                        </a>
-                    </li>
-                    @if (Auth::user()->ROLE == 'Admin')
-                      <li>
-                          <a href="{{ url('/recibido') }}">
-                            <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
-                            <span class="menu-item-parent">Recibida PROFIN</span>
+                  <li class="open">
+                    <a href="#">
+                        <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
+                      <span>Recibidas</span>
+                    </a>
+                    <ul>
+                      @if (Auth::user()->ROLE == 'Admin')
+                        <li>
+                            <a href="{{ url('/recibido') }}">
+                              <i class="fa fa-lg fa-fw fa-home"></i>
+                              <span class="menu-item-parent">Recibida PROFIN</span>
+                            </a>
+                        </li>
+                      @endif
+                      <li >
+                          <a href="{{ url('/pendientes') }}">
+                            <i class="fa fa-lg fa-fw fa-user"></i>
+                            <span class="menu-item-parent">Recibida Pend.</span>
+                            {{-- <span class="badge bg-color-red pull-right inbox-badge">{{ $num }}</span> --}}
                           </a>
                       </li>
-                    @endif
-                    <li>
-                        <a href="{{ url('/enviado') }}">
-                          <i class="fa fa-lg fa-fw fa-arrow-circle-left"></i>
-                          <span class="menu-item-parent">Enviada</span>
-                        </a>
-                    </li>
+                    </ul>
+                  </li>
+                  <li class="open">
+                    <a href="#">
+                        <i class="fa fa-lg fa-fw fa-arrow-circle-left"></i>
+                      <span>Enviados</span>
+                    </a>
+                    <ul>
+                      @if (Auth::user()->ROLE == 'Admin')
+                        <li>
+                            <a href="{{ url('/enviadoGeneral') }}">
+                              <i class="fa fa-lg fa-fw fa-home"></i>
+                              <span class="menu-item-parent">Enviada PROFIN</span>
+                            </a>
+                        </li>
+                      @endif
+                      <li>
+                          <a href="{{ url('/enviado') }}">
+                            <i class="fa fa-lg fa-fw fa-user"></i>
+                            <span class="menu-item-parent">Enviados</span>
+                          </a>
+                      </li>
+                    </ul>
+                  </li>
                 </ul>
             </li>
+            {{-- <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-folder"></i> <span class="menu-item-parent">Proyectos</span></a>
+                <ul>
+                  <li>
+                    <a href="#">
+                        <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
+                      <span>Fundacion PROFIN</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                        <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
+                      <span>MISE II</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                        <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
+                      <span>Mercados Inclusivos</span>
+                    </a>
+                  </li>
+                </ul>
+            </li> --}}
 
         </ul>
     </nav>

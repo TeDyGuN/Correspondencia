@@ -43,6 +43,11 @@ Route::get('/pendientes','DataTables\RecibidoController@getPendientes');
 Route::get('/correspondencia/ruta/{id}','Correspondencia\CorrespondenciaController@getRuta');
 Route::post('/correspondencia/rutanuevo', 'Correspondencia\CorrespondenciaController@saveRuta');
 
+//Enviados
+Route::post('/enviado/nuevo','Correspondencia\CorrespondenciaController@nuevoEnviado');
+
+
+
 //get archivo
 Route::get('storage/{archivo}', function ($archivo) {
     $url = storage_path('app/').$archivo;
@@ -58,6 +63,7 @@ Route::get('storage/{archivo}', function ($archivo) {
 Route::resource('recibidos', 'RecibidosController');
 
 Route::Resource('apis', 'ApiController');
+Route::Resource('aps', 'ApiEnviadoController');
 
 Route::get('/recibido','DataTables\RecibidoController@getIndex');
 Route::get('/anyData','DataTables\RecibidoController@anyData')->name('recibido.data');
@@ -65,7 +71,10 @@ Route::get('/anyData','DataTables\RecibidoController@anyData')->name('recibido.d
 Route::get('/pendData','DataTables\RecibidoController@pendData')->name('pendientes.data');
 
 Route::get('/enviado','DataTables\EmisionController@getIndex');
-Route::get('/anyData','DataTables\EmisionController@sendData')->name('enviado.data');
+Route::get('/anyDataEnviado','DataTables\EmisionController@sendData')->name('enviado.data');
+
+Route::get('/enviadoGeneral','DataTables\EmisionController@getIndexG');
+Route::get('/anyDataEnviadoG','DataTables\EmisionController@sendDataG')->name('enviadog.data');
 // Route::controller('recibido', '', [
 //     'anyData'  => 'recibido.data',
 //     'getIndex' => 'recibido',

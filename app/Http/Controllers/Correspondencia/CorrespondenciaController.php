@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\User;
 use App\Recibidos;
 use App\Proceso;
+use App\Enviado;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
@@ -76,12 +77,19 @@ class CorrespondenciaController extends Controller{
 
     return back()->withInput();
   }
-  public function nuevoEnvado(Request $request)
+  public function nuevoEnviado(Request $request)
   {
+    /*
+    protected $fillable = [
+        'id_enviado', 'tipo', 'codigo', 'emitente', 'referencia',
+        'adjunto', 'file', 'observacion', 'id_user', 'id_user_destino'
+    ];
+
+    */
     //dd($request);
     $c= Enviado::orderBy('id_enviado', 'desc')
                       ->first();
-    $id = $c->id_recibido + 1;
+    $id = $c->id_enviado + 1;
 
     //Archivo
     //obtenemos el campo file definido en el formulario
@@ -102,8 +110,9 @@ class CorrespondenciaController extends Controller{
     $cor->file = $nombre;
     $cor->observacion = $request->c_obs;
     $cor->id_user_destino = $request->c_der;
+    $cor->id_user = Auth::id();
     $cor->save();
-    
+
     return back()->withInput();
   }
   public function nuevo(Request $request)

@@ -27,15 +27,15 @@ class RecibidoController extends Controller
   */
   public function anyData()
   {
-    $rec = Recibidos::orderBy('id_recibido', 'desc')
-    ->select();
-    return Datatables::of($rec)
-    ->addColumn('action', function ($r) {
-                    return '<a href="' . url('/correspondencia/ruta/'.$r->id ) .'" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-sort"></i> Hoja de Ruta</a>
-                    <a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="modal" data-target="#mod_eliminar"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>';
-                })
+      $rec = Recibidos::orderBy('id_recibido', 'desc')
+      ->select();
+      return Datatables::of($rec)
+      ->addColumn('action', function ($r) {
+                      return '<a href="' . url('/correspondencia/ruta/'.$r->id ) .'" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-sort"></i> Hoja de Ruta</a>
+                      <a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="modal" data-target="#mod_eliminar"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>';
+                  })
 
-      ->make(true);
+        ->make(true);
   }
   public function pendData()
   {
