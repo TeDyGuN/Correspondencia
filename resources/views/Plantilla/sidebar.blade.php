@@ -100,7 +100,7 @@
                   </li>
                 </ul>
             </li>
-            {{-- <li>
+            <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-folder"></i> <span class="menu-item-parent">Proyectos</span></a>
                 <ul>
                   <li>
@@ -122,7 +122,7 @@
                     </a>
                   </li>
                 </ul>
-            </li> --}}
+            </li>
 
         </ul>
     </nav>
