@@ -151,6 +151,9 @@
             <div class="panel panel-default" id="panel-profin">
                 <div class="panel-heading text-center textoHeader">Hoja de Ruta -  {{ $aso->codigo }}</div>
                 <div class="panel-body">
+                  <a href="{{ url('reporte/hoja').'/'.$aso->id}}" target="_blank"><button type="" class="btn btn-primary">
+                      <i class="fa fa-btn fa-user"></i> Imprimir
+                  </button></a>
                   <table class="table  table-bordered table-striped">
                       <thead>
                         <tr style="font-size: 14px;" class="info">

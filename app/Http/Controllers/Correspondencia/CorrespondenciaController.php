@@ -20,6 +20,21 @@ use Illuminate\Support\Facades\Storage;
 
 class CorrespondenciaController extends Controller{
 
+  //REPORTES
+  public function getReporteHojaView($id){
+    $aso = Recibidos::where('recibidos.id', $id)
+                ->first();
+    $procesos = Proceso::join('users as u1', 'procesos.id_user', 'u1.id')
+                ->join('users as u2', 'procesos.id_user_destino', 'u2.id')
+                ->select('u1.nombre as nnombre', 'u1.paterno as npaterno',
+                'u2.nombre as mnombre', 'u2.paterno as mpaterno', 'accion',
+                'procesos.created_at as fecha', 'referencia', 'estado')
+                ->where('id_recibido', $id)
+                ->get();
+  	return view('Reportes/hojaruta', compact('procesos', 'aso'));
+  }
+
+
   public function getRecibidoView(){
     $correspondencia = Recibidos::get();
   	return view('Correspondencia/recibida', compact('correspondencia'));

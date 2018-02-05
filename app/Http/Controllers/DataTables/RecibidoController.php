@@ -41,6 +41,7 @@ class RecibidoController extends Controller
   {
     $rec = Recibidos::join('procesos as p', 'p.id_recibido', 'recibidos.id')
                     ->where('p.id_user_destino', Auth::id())
+                    ->where('p.estado', 'Abierto')
                     ->orderBy('recibidos.id_recibido', 'desc')
                     ->select('recibidos.id as id', 'recibidos.codigo as codigo', 'recibidos.tipo as tipo',
                   'recibidos.f_creacion as f_creacion', 'recibidos.remitente as remitente',

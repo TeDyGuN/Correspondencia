@@ -46,7 +46,8 @@ Route::post('/correspondencia/rutanuevo', 'Correspondencia\CorrespondenciaContro
 //Enviados
 Route::post('/enviado/nuevo','Correspondencia\CorrespondenciaController@nuevoEnviado');
 
-
+//REPORTES
+Route::get('/reporte/hoja/{id}','Correspondencia\CorrespondenciaController@getReporteHojaView');
 
 //get archivo
 Route::get('storage/{archivo}', function ($archivo) {
