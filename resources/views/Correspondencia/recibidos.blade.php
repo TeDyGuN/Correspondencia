@@ -87,10 +87,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="c_fecha" class="col-md-4 control-label">Fecha de Origen</label>
+                            <label for="c_fecha" class="col-md-4 control-label">Fecha de Recepcion</label>
 
                             <div class="col-md-6">
-                                <input id="c_fecha" type="date" class="form-control" name="c_fecha">
+                                <input id="c_fecha" type="date" class="form-control" name="c_fecha" required>
 
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                             <label for="c_remitente" class="col-md-4 control-label">Remitente</label>
 
                             <div class="col-md-6">
-                                <input id="c_remitente" type="text" class="form-control" name="c_remitente" value="{{ old('c_remitente') }}">
+                                <input id="c_remitente" type="text" class="form-control" name="c_remitente" required value="{{ old('c_remitente') }}">
 
                                 @if ($errors->has('c_remitente'))
                                     <span class="help-block">
@@ -111,7 +111,7 @@
                             <label for="c_referencia" class="col-md-4 control-label">Referencia</label>
 
                             <div class="col-md-6">
-                                <textarea id="c_referencia" type="" class="form-control" name="c_referencia" value="{{ old('c_referencia') }}" rows="3">
+                                <textarea id="c_referencia" type="" class="form-control" name="c_referencia" required value="{{ old('c_referencia') }}" rows="3">
                                   </textarea>
 
                                 @if ($errors->has('c_referencia'))
@@ -125,7 +125,7 @@
                             <label for="c_adjunto" class="col-md-4 control-label">Adjunto</label>
 
                             <div class="col-md-6">
-                                <input id="c_adjunto" type="text" class="form-control" name="c_adjunto" value="{{ old('c_adjunto') }}">
+                                <input id="c_adjunto" type="text" class="form-control" required name="c_adjunto" value="{{ old('c_adjunto') }}">
 
                                 @if ($errors->has('c_adjunto'))
                                     <span class="help-block">
@@ -155,7 +155,7 @@
                         <div class="form-group{{ $errors->has('c_obs') ? ' has-error' : '' }}">
                             <label for="c_obs" class="col-md-4 control-label">Observacion</label>
                             <div class="col-md-6">
-                                <input id="c_obs" type="text" class="form-control" name="c_obs" value="{{ old('c_obs') }}">
+                                <input id="c_obs" type="text" required class="form-control" name="c_obs" value="{{ old('c_obs') }}">
 
                                 @if ($errors->has('c_obs'))
                                     <span class="help-block">
@@ -178,9 +178,9 @@
 
                             <div class="col-md-6">
                               <select class="form-control" name="c_accion">
+                                  <option value="Reg. Correspondencia">Registrar Correspondencia</option>
                                   <option value="Rev. Informacion">Revisar Informacion</option>
                                   <option value="Derivar">Derivar</option>
-                                  <option value="Reg. Correspondencia">Registrar Correspondencia</option>
                                   <option value="Archivar">Archivar</option>
                               </select>
                             </div>
