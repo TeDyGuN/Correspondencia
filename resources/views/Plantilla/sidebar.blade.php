@@ -49,7 +49,22 @@
                   </ul>
               </li>
             @endif
-
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Asistencia</span></a>
+                <ul>
+                    <li>
+                        <a href="{{ url('asistencia') }}">Reporte de Asistencia</a>
+                    </li>
+                    @if (Auth::user()->ROLE == 'Admin')
+                      <li>
+                          <a href="{{ url('asistencia/planilla') }}">Subir Planilla</a>
+                      </li>
+                      <li>
+                          <a href="{{ url('asistencia/profin') }}">Reporte PROFIN</a>
+                      </li>
+                    @endif
+                </ul>
+            </li>
             <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-folder"></i> <span class="menu-item-parent">Correspondencia</span></a>
                 <ul>

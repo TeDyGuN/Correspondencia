@@ -48,6 +48,8 @@ Route::post('/enviado/nuevo','Correspondencia\CorrespondenciaController@nuevoEnv
 
 //REPORTES
 Route::get('/reporte/hoja/{id}','Correspondencia\CorrespondenciaController@getReporteHojaView');
+Route::get('/reporte/asistencia/{id}/{anio}/{mes}','AsistenciaController@getReporteView');
+Route::get('/reporte/asistenciaProfin/{anio}/{mes}','AsistenciaController@getReporteProfinView');
 
 //get archivo
 Route::get('storage/{archivo}', function ($archivo) {
@@ -80,3 +82,15 @@ Route::get('/anyDataEnviadoG','DataTables\EmisionController@sendDataG')->name('e
 //     'anyData'  => 'recibido.data',
 //     'getIndex' => 'recibido',
 // ]);
+
+
+//Rutas Asistencia
+Route::get('/asistencia','AsistenciaController@getView');
+Route::get('/asistencia/reporte/{id}/{anio}/{mes}','AsistenciaController@reporte')->name('asistencia.reporte');
+Route::get('/asistencia/reporte/{anio}/{mes}','AsistenciaController@reporteProfin')->name('asisprofin.reporte');
+Route::post('/asistencia/consultar','AsistenciaController@consultar');
+Route::post('/asistencia/consultarProfin','AsistenciaController@consultarProfin');
+Route::get('/asistencia/planilla', 'AsistenciaController@getPlanilla');
+Route::post('/asistencia/save', 'AsistenciaController@save');
+Route::get('/asistencia/datos/{id}/{anio}/{mes}', 'AsistenciaController@getDatos');
+Route::get('/asistencia/profin','AsistenciaController@getViewProfin');

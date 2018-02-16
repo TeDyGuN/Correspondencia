@@ -75,7 +75,6 @@
                  <th>{{ $p->mnombre. ' '. $p->mpaterno }}</th>
                  <th>{{ $p->referencia }}</th>
                  <th>{{ $p->estado }}</th>
-
              </tr>
          @endforeach
         </tbody>

@@ -30,6 +30,7 @@ class UsersTableSeeder extends Seeder
             'username' => 'tcarrasco',
             'email' => 'tcarrasco@fundacion-profin.org',
             'cargo' => 'Asistente de Sistemas',
+            'ci' => '6837705',
             'img' => 'tcarrasco.jpg',
             'ROLE' => 'Admin',
             'password' => bcrypt('tcaprofin')
@@ -42,6 +43,7 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Asistente Administrativa ',
             'img' => 'arivadeneyra.jpg',
             'ROLE' => 'Admin',
+            'ci' => '6959241',
             'password' => bcrypt('ariprofin')
         ]);
         DB::table('users')->insert([
@@ -52,6 +54,7 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Coordinador FIM y Mercados Rurales',
             'img' => 'asilvestre.jpg',
             'ROLE' => 'User',
+            'ci' => '3499286',
             'password' => bcrypt('asiprofin')
         ]);
         DB::table('users')->insert([
@@ -62,6 +65,7 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Director Ejecutivo',
             'img' => 'evargas.jpg',
             'ROLE' => 'Admin',
+            'ci' => '2966395',
             'password' => bcrypt('evaprofin')
         ]);
         DB::table('users')->insert([
@@ -72,6 +76,7 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Coordinadora Tecnica de Seguros y Microseguros',
             'img' => 'epacheco.jpg',
             'ROLE' => 'User',
+            'ci' => '2556541',
             'password' => bcrypt('epaprofin')
         ]);
         DB::table('users')->insert([
@@ -82,6 +87,7 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Coordinadora Técnica de Comunicación y Educación Financiera',
             'img' => 'xjauregui.jpg',
             'ROLE' => 'User',
+            'ci' => '2020538',
             'password' => bcrypt('xjaprofin')
         ]);
         DB::table('users')->insert([
@@ -92,6 +98,7 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Coordinadora Técnica de Articulación',
             'img' => 'lperez.jpg',
             'ROLE' => 'User',
+            'ci' => '6960153',
             'password' => bcrypt('lpeprofin')
         ]);
         DB::table('users')->insert([
@@ -102,6 +109,7 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Coordinadora Técnica de Innovaciones Financieras',
             'img' => 'nviera.jpg',
             'ROLE' => 'User',
+            'ci' => '4766431',
             'password' => bcrypt('nviprofin')
         ]);
         DB::table('users')->insert([
@@ -112,6 +120,7 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Coordinador Técnico de Planificación, Monitoreo y Evaluación',
             'img' => 'psaravia.jpg',
             'ROLE' => 'User',
+            'ci' => '4792003',
             'password' => bcrypt('psaprofin')
         ]);
         DB::table('users')->insert([
@@ -122,16 +131,18 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Coordinador Técnico de Planificación, Monitoreo y Evaluación',
             'img' => 'ralfaro.jpg',
             'ROLE' => 'User',
+            'ci' => '2446444',
             'password' => bcrypt('ralprofin')
         ]);
         DB::table('users')->insert([
-            'nombre' => 'Wilma',
+            'nombre' => 'Willma',
             'paterno' => 'Arancibia',
             'username' => 'warancibia',
             'email' => 'warancibia@fundacion-profin.org',
             'cargo' => 'Directora Administrativa y Financiera',
             'img' => 'warancibia.jpg',
             'ROLE' => 'Admin',
+            'ci' => '2360457',
             'password' => bcrypt('warprofin')
         ]);
         DB::table('users')->insert([
@@ -142,7 +153,19 @@ class UsersTableSeeder extends Seeder
             'cargo' => 'Coordinador Técnico en Negocios e Inversiones',
             'img' => 'gmedeiros.jpg',
             'ROLE' => 'User',
+            'ci' => '3388195',
             'password' => bcrypt('gmeprofin')
+        ]);
+        DB::table('users')->insert([
+            'nombre' => 'Monica',
+            'paterno' => 'Baldivia',
+            'username' => 'mbaldivia',
+            'email' => 'mbaldivia@fundacion-profin.org',
+            'cargo' => 'Coordinador Técnico en Negocios e Inversiones',
+            'img' => 'mbaldivia.jpg',
+            'ROLE' => 'User',
+            'ci' => '3353792',
+            'password' => bcrypt('mbaprofin')
         ]);
 
 

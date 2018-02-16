@@ -36,6 +36,10 @@
                   <th>Cargo</th>
                   <td>{{ Auth::user()->cargo }}</td>
               </tr>
+              <tr>
+                  <th>Cedula:</th>
+                  <td>{{ Auth::user()->ci }}</td>
+              </tr>
             </table>
         </div>
       </div>

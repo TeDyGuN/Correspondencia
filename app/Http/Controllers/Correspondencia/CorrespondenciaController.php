@@ -94,6 +94,7 @@ class CorrespondenciaController extends Controller{
   }
   public function nuevoEnviado(Request $request)
   {
+
     /*
     protected $fillable = [
         'id_enviado', 'tipo', 'codigo', 'emitente', 'referencia',
