@@ -50,6 +50,8 @@ Route::post('/enviado/nuevo','Correspondencia\CorrespondenciaController@nuevoEnv
 Route::get('/reporte/hoja/{id}','Correspondencia\CorrespondenciaController@getReporteHojaView');
 Route::get('/reporte/asistencia/{id}/{anio}/{mes}','AsistenciaController@getReporteView');
 Route::get('/reporte/asistenciaProfin/{anio}/{mes}','AsistenciaController@getReporteProfinView');
+Route::get('/reporte/vacacion/{id}','VacacionController@reporte')->name('vacacion.reporte');
+Route::get('/reporte/asignacion/{id}','VacacionController@reporteAsignacion')->name('asignacion.reporte');
 
 //get archivo
 Route::get('storage/{archivo}', function ($archivo) {
@@ -94,3 +96,8 @@ Route::get('/asistencia/planilla', 'AsistenciaController@getPlanilla');
 Route::post('/asistencia/save', 'AsistenciaController@save');
 Route::get('/asistencia/datos/{id}/{anio}/{mes}', 'AsistenciaController@getDatos');
 Route::get('/asistencia/profin','AsistenciaController@getViewProfin');
+
+//Rutas Vacacion
+Route::get('/vacacion','VacacionController@getView');
+Route::get('/vacacion/asignacion','VacacionController@getAsignacionView');
+Route::post('/vacacion/save','VacacionController@save');

@@ -33,6 +33,9 @@ class UsersTableSeeder extends Seeder
             'ci' => '6837705',
             'img' => 'tcarrasco.jpg',
             'ROLE' => 'Admin',
+            'jefe' => 11,
+            'v_saldo' => -4,
+            'boleta' => 1,
             'password' => bcrypt('tcaprofin')
         ]);
         DB::table('users')->insert([
@@ -44,6 +47,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'arivadeneyra.jpg',
             'ROLE' => 'Admin',
             'ci' => '6959241',
+            'jefe' => 11,
+            'v_saldo' => -5,
+            'boleta' => 1,
             'password' => bcrypt('ariprofin')
         ]);
         DB::table('users')->insert([
@@ -55,6 +61,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'asilvestre.jpg',
             'ROLE' => 'User',
             'ci' => '3499286',
+            'jefe' => 4,
+            'v_saldo' => 15,
+            'boleta' => 23,
             'password' => bcrypt('asiprofin')
         ]);
         DB::table('users')->insert([
@@ -66,6 +75,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'evargas.jpg',
             'ROLE' => 'Admin',
             'ci' => '2966395',
+            'jefe' => 11,
+            'v_saldo' => 37,
+            'boleta' => 41,
             'password' => bcrypt('evaprofin')
         ]);
         DB::table('users')->insert([
@@ -77,6 +89,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'epacheco.jpg',
             'ROLE' => 'User',
             'ci' => '2556541',
+            'jefe' => 10,
+            'v_saldo' => 0.5,
+            'boleta' => 7,
             'password' => bcrypt('epaprofin')
         ]);
         DB::table('users')->insert([
@@ -88,6 +103,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'xjauregui.jpg',
             'ROLE' => 'User',
             'ci' => '2020538',
+            'jefe' => 10,
+            'v_saldo' => -0.5,
+            'boleta' => 7,
             'password' => bcrypt('xjaprofin')
         ]);
         DB::table('users')->insert([
@@ -99,6 +117,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'lperez.jpg',
             'ROLE' => 'User',
             'ci' => '6960153',
+            'jefe' => 10,
+            'v_saldo' => -8.5,
+            'boleta' => 2,
             'password' => bcrypt('lpeprofin')
         ]);
         DB::table('users')->insert([
@@ -110,6 +131,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'nviera.jpg',
             'ROLE' => 'User',
             'ci' => '4766431',
+            'jefe' => 3,
+            'v_saldo' => 2.5,
+            'boleta' => 6,
             'password' => bcrypt('nviprofin')
         ]);
         DB::table('users')->insert([
@@ -121,6 +145,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'psaravia.jpg',
             'ROLE' => 'User',
             'ci' => '4792003',
+            'jefe' => 3,
+            'v_saldo' => 9,
+            'boleta' => 24,
             'password' => bcrypt('psaprofin')
         ]);
         DB::table('users')->insert([
@@ -132,6 +159,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'ralfaro.jpg',
             'ROLE' => 'User',
             'ci' => '2446444',
+            'jefe' => 4,
+            'v_saldo' => -7,
+            'boleta' => 13,
             'password' => bcrypt('ralprofin')
         ]);
         DB::table('users')->insert([
@@ -143,6 +173,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'warancibia.jpg',
             'ROLE' => 'Admin',
             'ci' => '2360457',
+            'jefe' => 4,
+            'v_saldo' => 17.5,
+            'boleta' => 48,
             'password' => bcrypt('warprofin')
         ]);
         DB::table('users')->insert([
@@ -154,6 +187,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'gmedeiros.jpg',
             'ROLE' => 'User',
             'ci' => '3388195',
+            'jefe' => 4,
+            'v_saldo' => 0,
+            'boleta' => 0,
             'password' => bcrypt('gmeprofin')
         ]);
         DB::table('users')->insert([
@@ -165,6 +201,9 @@ class UsersTableSeeder extends Seeder
             'img' => 'mbaldivia.jpg',
             'ROLE' => 'User',
             'ci' => '3353792',
+            'jefe' => 3,
+            'v_saldo' => 0,
+            'boleta' => 0,
             'password' => bcrypt('mbaprofin')
         ]);
 

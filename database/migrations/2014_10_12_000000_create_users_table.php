@@ -34,6 +34,9 @@ class CreateUsersTable extends Migration
             $table->string('img');
             $table->string('ROLE');
             $table->string('password');
+            $table->integer('jefe');
+            $table->decimal('v_saldo',3, 1);
+            $table->integer('boleta');
             $table->rememberToken();
             $table->timestamps();
         });
