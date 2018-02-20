@@ -19,10 +19,12 @@ class CreateVacacionsTable extends Migration
             $table->foreign('id_user')->references('id')->on('users');
             $table->date('inicio');
             $table->date('fin');
-            $table->integer('duracion');
+            $table->decimal('duracion', 3, 1);
+            $table->integer('boleta');
             $table->date('ultimo_trabajo');
             $table->date('reanudacion_trabajo');
             $table->text('observacion');
+            $table->enum('tipo', ['Asignacion', 'Vacacion', 'Atraso']);
             $table->timestamps();
         });
     }

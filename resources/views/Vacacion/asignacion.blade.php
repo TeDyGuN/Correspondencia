@@ -14,7 +14,7 @@
             <h3 class="panel-title">Asignar Vacación</h3>
         </div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form" target="_blank" enctype="multipart/form-data"  method="POST" action="{{ url('vacacion/save') }}">
+            <form class="form-horizontal" role="form" target="_blank" enctype="multipart/form-data"  method="POST" action="{{ url('asignacion/save') }}">
                 {{ csrf_field() }}
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label for="nombres" class="col-md-4 control-label">N° Dias Asignados: </label>
                     <div class="col-md-6">
-                        <input type="number" class="form-control" id="duracion" name="duracion"  required>
+                        <input type="decimal" class="form-control" id="duracion" name="duracion"  required>
                     </div>
                 </div>
 
@@ -103,7 +103,7 @@
           var dur = $('#duracion').val();
           var pend = $('#v_pend').text();
           $('#v_sol').text(dur);
-          var saldo = parseInt(pend) + parseInt(dur);
+          var saldo = parseFloat(pend) + parseFloat(dur);
           $('#v_saldo').text(saldo);
         });
         $('#usuario').change(function(){

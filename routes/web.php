@@ -52,6 +52,8 @@ Route::get('/reporte/asistencia/{id}/{anio}/{mes}','AsistenciaController@getRepo
 Route::get('/reporte/asistenciaProfin/{anio}/{mes}','AsistenciaController@getReporteProfinView');
 Route::get('/reporte/vacacion/{id}','VacacionController@reporte')->name('vacacion.reporte');
 Route::get('/reporte/asignacion/{id}','VacacionController@reporteAsignacion')->name('asignacion.reporte');
+Route::get('/reporte/control','VacacionController@reporteControl');
+Route::get('/reporte/atraso/{id}','VacacionController@getReporteAtraso');
 
 //get archivo
 Route::get('storage/{archivo}', function ($archivo) {
@@ -101,3 +103,6 @@ Route::get('/asistencia/profin','AsistenciaController@getViewProfin');
 Route::get('/vacacion','VacacionController@getView');
 Route::get('/vacacion/asignacion','VacacionController@getAsignacionView');
 Route::post('/vacacion/save','VacacionController@save');
+Route::post('/asignacion/save','VacacionController@saveAsignacion');
+Route::get('/vacacion/control','VacacionController@control');
+Route::get('/vacacion/atrasos','VacacionController@atrasos');

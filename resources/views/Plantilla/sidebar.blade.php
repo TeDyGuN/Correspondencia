@@ -119,19 +119,20 @@
                 <a href="#"><i class="fa fa-lg fa-fw fa-fighter-jet"></i> <span class="menu-item-parent">Vacaciones</span></a>
                 <ul>
                   <li>
-                      <a href="{{ url('asistencia/planilla') }}">Control de Vacaciones</a>
+                      <a href="{{ url('vacacion/control') }}">Control de Vacaciones</a>
                   </li>
-                  <li>
-                      <a href="{{ url('asistencia/profin') }}">Atrasos</a>
-                  </li>
-                    @if (Auth::user()->ROLE == 'Admin')
-                      <li>
-                          <a href="{{ url('vacacion') }}">Solicitud de Vacación</a>
-                      </li>
-                      <li>
-                          <a href="{{ url('vacacion/asignacion') }}">Asignación de Vacación</a>
-                      </li>
-                    @endif
+
+                  @if (Auth::user()->ROLE == 'Admin')
+                    <li>
+                        <a href="{{ url('vacacion') }}">Solicitud de Vacación</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('vacacion/asignacion') }}">Asignación de Vacación</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('vacacion/atrasos') }}">Atrasos</a>
+                    </li>
+                  @endif
                 </ul>
             </li>
             {{-- <li>

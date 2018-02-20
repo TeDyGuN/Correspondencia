@@ -52,7 +52,7 @@
                 <div class="form-group">
                     <label for="nombres" class="col-md-4 control-label">Duracion (Dias): </label>
                     <div class="col-md-6">
-                        <input type="number" class="form-control" id="duracion" name="duracion"  required>
+                        <input type="decimal" class="form-control" id="duracion" name="duracion"  required>
                     </div>
                 </div>
                 <div class="form-group">
