@@ -136,6 +136,26 @@
                 </ul>
             </li>
             {{-- <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-briefcase"></i> <span class="menu-item-parent">Seguimiento</span></a>
+                <ul>
+                  <li>
+                      <a href="{{ url('vacacion/control') }}">Proyecto</a>
+                  </li>
+
+                  @if (Auth::user()->ROLE == 'Admin')
+                    <li>
+                        <a href="{{ url('vacacion') }}">Solicitud de Vacación</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('vacacion/asignacion') }}">Asignación de Vacación</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('vacacion/atrasos') }}">Atrasos</a>
+                    </li>
+                  @endif
+                </ul>
+            </li> --}}
+            {{-- <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-folder"></i> <span class="menu-item-parent">Proyectos</span></a>
                 <ul>
                   <li>

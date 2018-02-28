@@ -94,7 +94,7 @@
                                     <label for="seguimiento" class="col-md-3 control-label">Seguimiento</label>
 
                                     <div class="col-md-9">
-                                        <textarea id="seguimiento" type="" class="form-control" name="seguimiento" value="{{ old('seguimiento') }}" rows="3">
+                                        <input id="seguimiento" type="text" class="form-control" name="seguimiento" value="{{ old('seguimiento') }}" rows="3" required>
                                           </textarea>
 
                                         @if ($errors->has('seguimiento'))

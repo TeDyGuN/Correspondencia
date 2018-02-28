@@ -183,7 +183,7 @@ class UsersTableSeeder extends Seeder
             'paterno' => 'Medeiros',
             'username' => 'gmedeiros',
             'email' => 'gmedeiros@fundacion-profin.org',
-            'cargo' => 'Coordinador Técnico en Negocios e Inversiones',
+            'cargo' => 'Coordinador Técnico de Estudios e Investigación',
             'img' => 'gmedeiros.jpg',
             'ROLE' => 'User',
             'ci' => '3388195',

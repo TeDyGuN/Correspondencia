@@ -88,8 +88,6 @@ class VacacionController extends Controller
                     'observacion')
                     ->get();
 
-        // dd($reporte);
-        // //$vacacion = ['nombre' => '']
         return view('Reportes/vacacionSolicitada', compact('reporte'));
     }
     public function reporteAsignacion($id){
@@ -125,7 +123,7 @@ class VacacionController extends Controller
     }
     public function atrasos(){
         $reporte = Horario::join('users as u', 'id_user', 'u.id')
-                  ->whereTime('atraso', '>', '00:00')
+                  ->where('atraso', '>', '00:00')
                   ->select('horarios.id', 'fecha', 'atraso', 'nombre', 'paterno', 'hora_in')
                   ->orderBy('fecha', 'desc')
                   ->paginate(15);
