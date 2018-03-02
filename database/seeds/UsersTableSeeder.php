@@ -197,7 +197,7 @@ class UsersTableSeeder extends Seeder
             'paterno' => 'Baldivia',
             'username' => 'mbaldivia',
             'email' => 'mbaldivia@fundacion-profin.org',
-            'cargo' => 'Coordinador Técnico en Negocios e Inversiones',
+            'cargo' => 'Coordinadora Técnica de Seguros',
             'img' => 'mbaldivia.jpg',
             'ROLE' => 'User',
             'ci' => '3353792',

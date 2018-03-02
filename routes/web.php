@@ -82,6 +82,8 @@ Route::get('/anyDataEnviado','DataTables\EmisionController@sendData')->name('env
 
 Route::get('/enviadoGeneral','DataTables\EmisionController@getIndexG');
 Route::get('/anyDataEnviadoG','DataTables\EmisionController@sendDataG')->name('enviadog.data');
+
+
 // Route::controller('recibido', '', [
 //     'anyData'  => 'recibido.data',
 //     'getIndex' => 'recibido',
@@ -106,3 +108,6 @@ Route::post('/vacacion/save','VacacionController@save');
 Route::post('/asignacion/save','VacacionController@saveAsignacion');
 Route::get('/vacacion/control','VacacionController@control');
 Route::get('/vacacion/atrasos','VacacionController@atrasos');
+
+//Rutas seguimiento
+Route::get('/proyectos', 'Seguimiento/ProyectoController@getView');

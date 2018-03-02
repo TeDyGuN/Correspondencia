@@ -37,6 +37,8 @@ class CreateUsersTable extends Migration
             $table->integer('jefe');
             $table->decimal('v_saldo',3, 1);
             $table->integer('boleta');
+            $table->integer('id_proyecto')->unsigned();
+            $table->foreign('id_proyecto')->references('id')->on('proyectos');
             $table->rememberToken();
             $table->timestamps();
         });
