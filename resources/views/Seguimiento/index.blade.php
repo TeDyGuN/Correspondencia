@@ -14,26 +14,45 @@
             <h3 class="panel-title">Proyectos</h3>
         </div>
         <div class="panel-body">
-          <table class="table table-striped">
+          <table id="example" class="display projects-table table table-striped table-bordered table-hover dataTable no-footer"
+          cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
           <thead>
             <tr>
               <th></th>
               <th>Proyecto</th>
               <th>Progreso</th>
-              <th>Contactos</th>
+              <th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Contactos</th>
               <th>Estatus</th>
-              <th>Inicio</th>
-              <th>Fin</th>
+              <th>Presupuesto</th>
+              <th><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Inicio</th>
+              <th><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Fin</th>
             </tr>
           </thead>
           <tbody>
               @foreach ($proyectos as $p)
-                <tr>
-                  <td>+</td>
+                <tr role="row">
+                  <td class="details-control">
+
+                  </td>
                   <td>{{ $p->nombre }}</td>
-                  <td>{{ $p->progress }}</td>
-                  <td>{{ $p->contactos }}</td>
-                  <td>{{ $p->status }}</td>
+                  <td>
+                    <div class="progress progress-xs" data-progressbar-value="{{ $p->progreso }}">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </td>
+                  <td>Contactos</td>
+                  @if (  $p->estatus == "Activo")
+                    <td class="text-center">
+                      <span class="label label-success">Activo</span>
+                    </td>
+                  @else
+                    <td class="text-center">
+                      <span class="label label-default">Inactivo</span>
+                    </td>
+                  @endif
+                  <td>
+                      BOB. {{ $p->presupuesto }}
+                  </td>
                   <td>{{ $p->inicio }}</td>
                   <td>{{ $p->fin }}</td>
                 </tr>

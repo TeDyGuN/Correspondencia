@@ -11,33 +11,49 @@ class ProyectoTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('users')->insert([
-          'nombre' => 'Ted',
-          'paterno' => 'Carrasco',
-          'username' => 'tcarrasco',
-          'email' => 'tcarrasco@fundacion-profin.org',
-          'cargo' => 'Asistente de Sistemas',
-          'ci' => '6837705',
-          'img' => 'tcarrasco.jpg',
-          'ROLE' => 'Admin',
-          'jefe' => 11,
-          'v_saldo' => -4,
-          'boleta' => 1,
-          'password' => bcrypt('tcaprofin')
+      DB::table('proyectos')->insert([
+          'nombre' => 'Fundacion Profin',
+          'canWrite' => true,
+          'zoom' => true,
+          'canWriteOnParent' => true,
+          'inicio' => '2010-01-01',
+          'fin' => '2022-12-31',
+          'progreso' => 0,
+          'estatus' => 'Activo',
+          'presupuesto' => 2000000.00
       ]);
-      DB::table('users')->insert([
-          'nombre' => 'Andrea',
-          'paterno' => 'Rivadeneyra',
-          'username' => 'arivadeneyra',
-          'email' => 'arivadeneyra@fundacion-profin.org',
-          'cargo' => 'Asistente Administrativa ',
-          'img' => 'arivadeneyra.jpg',
-          'ROLE' => 'Admin',
-          'ci' => '6959241',
-          'jefe' => 11,
-          'v_saldo' => -5,
-          'boleta' => 1,
-          'password' => bcrypt('ariprofin')
+      DB::table('proyectos')->insert([
+          'nombre' => 'Mercados Rurales II',
+          'canWrite' => true,
+          'zoom' => true,
+          'canWriteOnParent' => true,
+          'inicio' => '2018-01-01',
+          'fin' => '2021-12-31',
+          'progreso' => 0,
+          'estatus' => 'Activo',
+          'presupuesto' => 2000000.00
+      ]);
+      DB::table('proyectos')->insert([
+          'nombre' => 'Mercados Inclusivos III',
+          'canWrite' => true,
+          'zoom' => true,
+          'canWriteOnParent' => true,
+          'inicio' => '2017-01-01',
+          'fin' => '2019-12-31',
+          'progreso' => 0,
+          'estatus' => 'Activo',
+          'presupuesto' => 2000000.00
+      ]);
+      DB::table('proyectos')->insert([
+          'nombre' => 'Unidad de Investigacion',
+          'canWrite' => true,
+          'zoom' => true,
+          'canWriteOnParent' => true,
+          'inicio' => '2017-01-01',
+          'fin' => '2019-12-31',
+          'progreso' => 0,
+          'estatus' => 'Activo',
+          'presupuesto' => 2000000.00
       ]);
     }
 }

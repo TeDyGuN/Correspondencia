@@ -139,7 +139,7 @@
                 <a href="#"><i class="fa fa-lg fa-fw fa-briefcase"></i> <span class="menu-item-parent">Seguimiento</span></a>
                 <ul>
                   <li>
-                      <a href="{{ url('vacacion/control') }}">Proyectos</a>
+                      <a href="{{ url('proyectos') }}">Proyectos</a>
                   </li>
                   {{-- @if (Auth::user()->ROLE == 'Admin')
                     <li>

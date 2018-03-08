@@ -36,6 +36,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 11,
             'v_saldo' => -4,
             'boleta' => 1,
+            'id_proyecto' => 1,
             'password' => bcrypt('tcaprofin')
         ]);
         DB::table('users')->insert([
@@ -50,6 +51,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 11,
             'v_saldo' => -5,
             'boleta' => 1,
+            'id_proyecto' => 1,
             'password' => bcrypt('ariprofin')
         ]);
         DB::table('users')->insert([
@@ -64,6 +66,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 4,
             'v_saldo' => 15,
             'boleta' => 23,
+            'id_proyecto' => 2,
             'password' => bcrypt('asiprofin')
         ]);
         DB::table('users')->insert([
@@ -78,6 +81,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 11,
             'v_saldo' => 37,
             'boleta' => 41,
+            'id_proyecto' => 1,
             'password' => bcrypt('evaprofin')
         ]);
         DB::table('users')->insert([
@@ -92,6 +96,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 10,
             'v_saldo' => 0.5,
             'boleta' => 7,
+            'id_proyecto' => 3,
             'password' => bcrypt('epaprofin')
         ]);
         DB::table('users')->insert([
@@ -106,6 +111,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 10,
             'v_saldo' => -0.5,
             'boleta' => 7,
+            'id_proyecto' => 3,
             'password' => bcrypt('xjaprofin')
         ]);
         DB::table('users')->insert([
@@ -120,6 +126,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 10,
             'v_saldo' => -8.5,
             'boleta' => 2,
+            'id_proyecto' => 3,
             'password' => bcrypt('lpeprofin')
         ]);
         DB::table('users')->insert([
@@ -134,6 +141,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 3,
             'v_saldo' => 2.5,
             'boleta' => 6,
+            'id_proyecto' => 2,
             'password' => bcrypt('nviprofin')
         ]);
         DB::table('users')->insert([
@@ -148,6 +156,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 3,
             'v_saldo' => 9,
             'boleta' => 24,
+            'id_proyecto' => 2,
             'password' => bcrypt('psaprofin')
         ]);
         DB::table('users')->insert([
@@ -162,6 +171,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 4,
             'v_saldo' => -7,
             'boleta' => 13,
+            'id_proyecto' => 3,
             'password' => bcrypt('ralprofin')
         ]);
         DB::table('users')->insert([
@@ -176,6 +186,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 4,
             'v_saldo' => 17.5,
             'boleta' => 48,
+            'id_proyecto' => 1,
             'password' => bcrypt('warprofin')
         ]);
         DB::table('users')->insert([
@@ -190,6 +201,7 @@ class UsersTableSeeder extends Seeder
             'jefe' => 4,
             'v_saldo' => 0,
             'boleta' => 0,
+            'id_proyecto' => 4,
             'password' => bcrypt('gmeprofin')
         ]);
         DB::table('users')->insert([
@@ -204,7 +216,23 @@ class UsersTableSeeder extends Seeder
             'jefe' => 3,
             'v_saldo' => 0,
             'boleta' => 0,
+            'id_proyecto' => 2,
             'password' => bcrypt('mbaprofin')
+        ]);
+        DB::table('users')->insert([
+            'nombre' => 'Claudia',
+            'paterno' => 'Roca',
+            'username' => 'croca',
+            'email' => 'croca@fundacion-profin.org',
+            'cargo' => 'Coordinadora Técnica de Investigacion',
+            'img' => 'croca.jpg',
+            'ROLE' => 'User',
+            'ci' => '2393390',
+            'jefe' => 4,
+            'v_saldo' => 0,
+            'boleta' => 0,
+            'id_proyecto' => 4,
+            'password' => bcrypt('croprofin')
         ]);
 
 

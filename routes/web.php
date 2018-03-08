@@ -110,4 +110,4 @@ Route::get('/vacacion/control','VacacionController@control');
 Route::get('/vacacion/atrasos','VacacionController@atrasos');
 
 //Rutas seguimiento
-Route::get('/proyectos', 'Seguimiento/ProyectoController@getView');
+Route::get('/proyectos', 'Seguimiento\ProyectoController@getView');
