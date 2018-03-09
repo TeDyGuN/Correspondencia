@@ -22,10 +22,17 @@ class ProyectoController extends Controller{
 
 
   public function getView(){
-    $proyectos = Proyecto::all();
-    return view('Seguimiento/index', compact('proyectos'));
+    $proyectos = Proyecto::where('id', '>', 1)
+                  ->get();
+    $users = User::all();
+    return view('Seguimiento/index', compact('proyectos', 'users'));
   }
-
+  public function getDatos($id){
+    $proyectos = Proyecto::where('id', '=', $id)
+                  ->get();
+    $users = User::all();
+    return view('Seguimiento/proyecto', compact('proyectos', 'users'));
+  }
 
   // public function getRecibidoView(){
   //   $correspondencia = Recibidos::get();
