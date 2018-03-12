@@ -155,7 +155,10 @@
         <script src="{{ asset('plantilla/js/plugin/flot/jquery.flot.resize.min.js') }}"></script>
         <script src="{{ asset('plantilla/js/plugin/flot/jquery.flot.time.min.js') }}"></script>
         <script src="{{ asset('plantilla/js/plugin/flot/jquery.flot.tooltip.min.js') }}"></script>
-
+        <script src="{{ asset('plantilla/js/plugin/flot/jquery.flot.fillbetween.min.js') }}"></script>
+        <script src="{{ asset('plantilla/js/plugin/flot/jquery.flot.orderBar.min.js') }}"></script>
+        <script src="{{ asset('plantilla/js/plugin/flot/jquery.flot.pie.min.js') }}"></script>
+        <script src="{{ asset('plantilla/js/plugin/flot/jquery.flot.canvas.min.js') }}"></script>
         <!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
         <script src="{{ asset('plantilla/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
         <script src="{{ asset('plantilla/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
@@ -187,13 +190,13 @@
                  */
 
                 // initialize sortable
-                $(function() {
-                    $("#sortable1, #sortable2").sortable({
-                        handle : '.handle',
-                        connectWith : ".todo",
-                        update : countTasks
-                    }).disableSelection();
-                });
+                // $(function() {
+                //     $("#sortable1, #sortable2").sortable({
+                //         handle : '.handle',
+                //         connectWith : ".todo",
+                //         update : countTasks
+                //     }).disableSelection();
+                // });
 
                 // check and uncheck
                 $('.todo .checkbox > input[type="checkbox"]').click(function() {
@@ -298,7 +301,7 @@
                     }
                 };
 
-                var plot = $.plot($("#updating-chart"), [getRandomData()], options);
+                //var plot = $.plot($("#updating-chart"), [getRandomData()], options);
 
                 /* live switch */
                 $('input[type="checkbox"]#start_interval').click(function() {
@@ -388,7 +391,7 @@
                         }
                     };
 
-                    var plot3 = $.plot($("#statsChart"), data, options);
+                    //var plot3 = $.plot($("#statsChart"), data, options);
                 });
 
                 // END TAB 2
@@ -712,9 +715,9 @@
                     $(this).parent('#chat-container').toggleClass('open');
                 })
 
-                $.chat_body.animate({
-                    scrollTop : $.chat_body[0].scrollHeight
-                }, 500);
+                // $.chat_body.animate({
+                //     scrollTop : $.chat_body[0].scrollHeight
+                // }, 500);
 
             });
 
