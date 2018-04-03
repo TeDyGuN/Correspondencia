@@ -30,10 +30,11 @@ class EmisionController extends Controller
                     ->orderBy('id_enviado', 'desc')
                     ->select('enviados.codigo as codigo', 'enviados.tipo as tipo', 'u.nombre as nombre', 'enviados.emitente as emitente',
                     'enviados.referencia as referencia', 'enviados.created_at as created_at', 'enviados.adjunto as adjunto',
-                    'enviados.id as id', 'enviados.id_enviado as id_enviado');
+                    'enviados.id as id', 'enviados.id_enviado as id_enviado', 'enviados.file as file');
     return Datatables::of($rec)
     ->addColumn('action', function ($r) {
-                    return '<a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="tooltip" data-placement="buttom" title="No Disponible"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>';
+                    return '<a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="tooltip" data-placement="buttom" title="No Disponible"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>
+                    <a href="'. url('storage/'.$r->file).'" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-wrench"></i> Descargar</a>';
                 })
     ->make(true);
   }
@@ -53,10 +54,11 @@ class EmisionController extends Controller
                     ->orderBy('id_enviado', 'desc')
                     ->select('enviados.codigo as codigo', 'enviados.tipo as tipo', 'u.nombre as nombre', 'enviados.emitente as emitente',
                     'enviados.referencia as referencia', 'enviados.created_at as created_at', 'enviados.adjunto as adjunto',
-                    'enviados.id as id', 'enviados.id_enviado as id_enviado');
+                    'enviados.id as id', 'enviados.id_enviado as id_enviado', 'enviados.file as file');
     return Datatables::of($rec)
     ->addColumn('action', function ($r) {
-                    return '<a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="modal" data-target="#mod_eliminar"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>';
+                    return '<a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="modal" data-target="#mod_eliminar"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>
+                    <a href="'. url('storage/'.$r->file).'" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-wrench"></i> Descargar</a>';
                 })
     ->make(true);
   }

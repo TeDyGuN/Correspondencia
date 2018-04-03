@@ -17,7 +17,7 @@ class AsistenciaController extends Controller
     public function getView(){
 
       $anio = ['2018'];
-      $mes = ['Febrero'];
+      $mes = ['Febrero', 'Marzo'];
       return view('Asistencia/index', compact('anio', 'mes'));
     }
     public function consultarProfin(Request $request){
@@ -29,7 +29,7 @@ class AsistenciaController extends Controller
     }
     public function getViewProfin() {
       $anio = ['2018'];
-      $mes = ['Febrero'];
+      $mes = ['Febrero', 'Marzo'];
       return view('Asistencia/profin', compact('anio', 'mes'));
     }
     public function getPlanilla(){

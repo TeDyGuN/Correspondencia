@@ -79,8 +79,8 @@ class UsersTableSeeder extends Seeder
             'ROLE' => 'Admin',
             'ci' => '2966395',
             'jefe' => 11,
-            'v_saldo' => 37,
-            'boleta' => 41,
+            'v_saldo' => 36,
+            'boleta' => 42,
             'id_proyecto' => 1,
             'password' => bcrypt('evaprofin')
         ]);
@@ -109,8 +109,8 @@ class UsersTableSeeder extends Seeder
             'ROLE' => 'User',
             'ci' => '2020538',
             'jefe' => 10,
-            'v_saldo' => -0.5,
-            'boleta' => 7,
+            'v_saldo' => -9.5,
+            'boleta' => 8,
             'id_proyecto' => 3,
             'password' => bcrypt('xjaprofin')
         ]);
@@ -184,8 +184,8 @@ class UsersTableSeeder extends Seeder
             'ROLE' => 'Admin',
             'ci' => '2360457',
             'jefe' => 4,
-            'v_saldo' => 17.5,
-            'boleta' => 48,
+            'v_saldo' => 17,
+            'boleta' => 49,
             'id_proyecto' => 1,
             'password' => bcrypt('warprofin')
         ]);
@@ -224,7 +224,7 @@ class UsersTableSeeder extends Seeder
             'paterno' => 'Roca',
             'username' => 'croca',
             'email' => 'croca@fundacion-profin.org',
-            'cargo' => 'Coordinadora Técnica de Investigacion',
+            'cargo' => 'Coordinadora Técnica de Investigación',
             'img' => 'croca.jpg',
             'ROLE' => 'User',
             'ci' => '2393390',
@@ -234,7 +234,5 @@ class UsersTableSeeder extends Seeder
             'id_proyecto' => 4,
             'password' => bcrypt('croprofin')
         ]);
-
-
     }
 }
