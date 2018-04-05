@@ -5,6 +5,7 @@ use App\User;
 use App\Recibidos;
 use App\Proyecto;
 use App\Enviado;
+use App\Indicador;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
@@ -30,10 +31,31 @@ class ProyectoController extends Controller{
   public function getDatos($id){
     $proyectos = Proyecto::where('id', '=', $id)
                   ->get();
+    $indicadores = Indicador::where('id_proyecto', $id)
+                  ->get();
     $users = User::all();
-    return view('Seguimiento/proyecto', compact('proyectos', 'users'));
+    return view('Seguimiento/proyecto', compact('proyectos', 'users', 'indicadores'));
   }
-
+  public function getModificarView($id){
+    $proyectos = Proyecto::where('id', '=', $id)
+                  ->get();
+    $indicadores = Indicador::where('id_proyecto', $id)
+                  ->get();
+    $users = User::all();
+    return view('Seguimiento/modificar', compact('proyectos', 'indicadores'));
+  }
+  public function saveIndicador(Request $request){
+    $in = new Indicador();
+    $in->indicador = $request->indicador;
+    $in->unidad = $request->unidad;
+    $in->id_proyecto = $request->_id;
+    $in->f_planificado = $request->f_planificado;
+    $in->a_planificado = $request->a_planificado;
+    $in->f_ejecutado = $request->f_ejecutado;
+    $in->a_ejecutado = $request->a_ejecutado;
+    $in->save();
+    return back()->withInput();
+  }
   // public function getRecibidoView(){
   //   $correspondencia = Recibidos::get();
   // 	return view('Correspondencia/recibida', compact('correspondencia'));

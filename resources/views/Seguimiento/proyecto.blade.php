@@ -72,12 +72,12 @@
                 <div class="widget-body no-padding" style="margin-top:15px;">
                   <div class="easy-pie-chart txt-color-blue easyPieChart" data-percent="36" data-pie-size="180">
                       <span class="percent percent-sign txt-color-blue font-xl semi-bold" style="width: 150%;">36</span>
-                      <h4 style="width: 150%;margin-bottom:10px;" class="text-center">2018 Actividad</h4>
+                      <h4 style="width: 150%;margin-bottom:10px;" class="text-center">2018 Ejecución Actividades</h4>
                     <canvas height="180" width="180"></canvas>
                   </div>
                   <div class="easy-pie-chart txt-color-red easyPieChart" data-percent="36" data-pie-size="180">
                       <span class="percent percent-sign txt-color-red font-xl semi-bold" style="width: 150%;">36</span>
-                      <h4 style="width: 150%;margin-bottom:10px;" class="text-center">2018 $</h4>
+                      <h4 style="width: 150%;margin-bottom:10px;" class="text-center">2018 Ejecución Presupuestaria</h4>
                       <canvas height="180" width="180"></canvas>
                   </div>
                 </div>
@@ -92,7 +92,7 @@
         <div class="col-md-6">
           <div class="panel panel-default" style="margin-top:15px;">
             <div class="panel-heading" style="background:#568a89; color:white;">
-              <h3 class="panel-title"><span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>Multi Anual</h3>
+              <h3 class="panel-title"><span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>Fase</h3>
             </div>
             <div class="panel-body">
               <div role="content">
@@ -108,14 +108,14 @@
                   <div class="easy-pie-chart txt-color-darken easyPieChart" data-percent="36" data-pie-size="180">
                     <div class="">
                       <span class="percent percent-sign txt-color-darken font-xl semi-bold" style="width: 150%;">36</span>
-                      <h4 style="width: 150%;margin-bottom:10px;" class="text-center">2018 - 2021 Actividad</h4>
+                      <h4 style="width: 150%;margin-bottom:10px;" class="text-center">Ejecución Actividades Fase</h4>
                     </div>
 
                           <canvas height="180" width="180"></canvas>
                   </div>
                   <div class="easy-pie-chart txt-color-greenLight chart4" data-percent="98" data-pie-size="180">
                           <span class="percent percent-sign txt-color-greenLight font-xl semi-bold" style="width: 150%;">55</span>
-                          <h4 style="width: 150%;margin-bottom:10px;" class="text-center">2018 - 2021 $</h4>
+                          <h4 style="width: 150%;margin-bottom:10px;" class="text-center">2018 Ejecución Fase</h4>
                           <canvas height="180" width="180"></canvas>
                   </div>
                 </div>
@@ -131,7 +131,7 @@
         <div class="col-md-12">
           <div class="panel panel-default" style="margin-top:20px;">
             <div class="panel-heading" style="background:#568a89; color:white;">
-              <h3 class="panel-title"><span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>Indicadores</h3>
+              <h3 class="panel-title"><span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>Indicadores de Resultado</h3>
             </div>
             <div class="panel-body">
               <table class="table table-bordered">
@@ -139,112 +139,45 @@
                   <tr>
                     <th width="5%">Codigo</th>
                     <th width="30%">Indicador</th>
-                    <th width="5%">Tipo</th>
-                    <th width="7%">Conseguido</th>
-                    <th width="7%">Objetivo</th>
+                    <th width="4%">Tipo</th>
+                    <th width="6%">Ejecutado</th>
+                    <th width="6%">Planificado</th>
+                    <th width="4%">Porcentaje</th>
                     <th width="46%">Progreso</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td rowspan="2">A1</td>
-                    <td rowspan="2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </td>
-                    <td>Anual</td>
-                    <td>1500</td>
-                    <td>5600</td>
-                    <td>
-                      <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
-                        <span class="text"> <span class="pull-right"> 130/200</span> </span>
-    										<div class="progress">
-    											<div class="progress-bar bg-color-red" style="width: 25%;"></div>
-    										</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>MultiAnual</td>
-                    <td>1500</td>
-                    <td>5600</td>
-                    <td>
-                      <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
-                        <span class="text"> <span class="pull-right"> 130/200</span> </span>
-    										<div class="progress">
-    											<div class="progress-bar bg-color-blueDark" style="width: 65%;"></div>
-    										</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2">A2</td>
-                    <td rowspan="2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat</td>
-                    <td>Anual</td>
-                    <td>1500</td>
-                    <td>5600</td>
-                    <td>
-                      <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
-                        <span class="text"> <span class="pull-right"> 130/200</span> </span>
-    										<div class="progress">
-    											<div class="progress-bar bg-color-red" style="width: 25%;"></div>
-    										</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>MultiAnual</td>
-                    <td>1500</td>
-                    <td>5600</td>
-                    <td>
-                      <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
-                        <span class="text"> <span class="pull-right"> 130/200</span> </span>
-    										<div class="progress">
-    											<div class="progress-bar bg-color-blueDark" style="width: 16%;"></div>
-    										</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td rowspan="2">A3</td>
-                    <td rowspan="2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. .</td>
-                    <td>Anual</td>
-                    <td>1500</td>
-                    <td>5600</td>
-                    <td>
-                      <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
-                        <span class="text"> <span class="pull-right"> 130/200</span> </span>
-    										<div class="progress">
-    											<div class="progress-bar bg-color-red" style="width: 65%;"></div>
-    										</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>MultiAnual</td>
-                    <td>1500</td>
-                    <td>5600</td>
-                    <td>
-                      <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
-                        <span class="text"> <span class="pull-right"> 130/200</span> </span>
-    										<div class="progress">
-    											<div class="progress-bar bg-color-blueDark" style="width: 72%;"></div>
-    										</div>
-                      </div>
-                    </td>
-                  </tr>
-                  {{-- </tr>
-                  <tr>
-                    <td>A2</td>
-                    <td> non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</td>
-                    <td>1800</td>
-                    <td>5700</td>
-                    <td>Progreso</td>
-                  </tr>
-                  <tr>
-                    <td>A3</td>
-                    <td></td>
-                    <td>1600</td>
-                    <td>5500</td>
-                    <td>Progreso</td>
-                  </tr> --}}
+                  @foreach($indicadores as $f)
+                    <tr>
+                      <td rowspan="2">{{ $f->id }}</td>
+                      <td rowspan="2">{{ $f->indicador }}</td>
+                      <td>Anual</td>
+                      <td>{{ $f->a_ejecutado }}</td>
+                      <td>{{ $f->a_planificado}}</td>
+                      <td>{{ number_format(($f->a_ejecutado / $f->a_planificado) * 100, 0) }}%</td>
+                      <td>
+                        <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
+      										<div class="progress">
+      											<div class="progress-bar bg-color-red" style="width: {{ ($f->a_ejecutado / $f->a_planificado) * 100 }}%;"></div>
+      										</div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Fase</td>
+                      <td>{{ $f->f_ejecutado }}</td>
+                      <td>{{ $f->f_planificado}}</td>
+                      <td>{{ number_format(($f->f_ejecutado / $f->f_planificado) * 100, 0) }}%</td>
+                      <td>
+                        <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
+      										<div class="progress">
+      											<div class="progress-bar bg-color-blueDark" style="width: {{ ($f->f_ejecutado / $f->f_planificado) * 100 }}%;"></div>
+      										</div>
+                        </div>
+                      </td>
+                    </tr>
+                  @endforeach
+
                 </tbody>
               </table>
               {{-- <div role="content">

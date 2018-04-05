@@ -71,7 +71,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'nombre' => 'Edwin',
-            'paterno' => 'Vargas',
+            'paterno' => 'Vargas Rodriguez',
             'username' => 'evargas',
             'email' => 'evargas@fundacion-profin.org',
             'cargo' => 'Director Ejecutivo',

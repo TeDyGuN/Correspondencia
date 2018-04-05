@@ -14,7 +14,7 @@
             <h3 class="panel-title">Proyectos</h3>
         </div>
         <div class="panel-body">
-          <table id="example" class="display projects-table table table-striped table-bordered table-hover dataTable no-footer"
+          <table id="example" class="table table-striped table-bordered table-hover no-footer"
           cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
           <thead>
             <tr>
@@ -26,6 +26,7 @@
               <th><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Inicio</th>
               <th><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Fin</th>
               <th>Gestion de Proyecto</th>
+              <th>Modificar</th>
             </tr>
           </thead>
           <tbody>
@@ -72,7 +73,10 @@
                   <td>{{ $p->inicio }}</td>
                   <td>{{ $p->fin }}</td>
                   <td>
-                    <a href="#">Gestion</a>
+                    <a href="#">Gestión</a>
+                  </td>
+                  <td>
+                    <a href="{{ url('proyecto/modificar/' . $p->id)}}">Modificar</a>
                   </td>
                 </tr>
                 {{-- <tr class="parque">

@@ -135,7 +135,7 @@
                   @endif
                 </ul>
             </li>
-            {{-- <li>
+            <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-briefcase"></i> <span class="menu-item-parent">Seguimiento</span></a>
                 <ul>
                   <li>
@@ -143,31 +143,7 @@
                   </li>
 
                 </ul>
-            </li> --}}
-            {{-- <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-folder"></i> <span class="menu-item-parent">Proyectos</span></a>
-                <ul>
-                  <li>
-                    <a href="#">
-                        <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
-                      <span>Fundacion PROFIN</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                        <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
-                      <span>MISE II</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                        <i class="fa fa-lg fa-fw fa-arrow-circle-right"></i>
-                      <span>Mercados Inclusivos</span>
-                    </a>
-                  </li>
-                </ul>
-            </li> --}}
-
+            </li>
         </ul>
     </nav>
 

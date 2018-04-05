@@ -113,4 +113,6 @@ Route::group(['middleware' => ['auth']], function() {
   //Rutas seguimiento
   Route::get('/proyectos', 'Seguimiento\ProyectoController@getView');
   Route::get('/proyecto/{id}', 'Seguimiento\ProyectoController@getDatos');
+  Route::get('/proyecto/modificar/{id}', 'Seguimiento\ProyectoController@getModificarView');
+  Route::post('/proyecto/indicador/save', 'Seguimiento\ProyectoController@saveIndicador');
 });
