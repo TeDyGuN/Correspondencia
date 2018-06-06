@@ -135,7 +135,7 @@
                   @endif
                 </ul>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-briefcase"></i> <span class="menu-item-parent">Seguimiento</span></a>
                 <ul>
                   <li>
@@ -143,7 +143,7 @@
                   </li>
 
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </nav>
 
