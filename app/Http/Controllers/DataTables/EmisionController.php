@@ -34,7 +34,8 @@ class EmisionController extends Controller
     return Datatables::of($rec)
     ->addColumn('action', function ($r) {
                     return '<a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="tooltip" data-placement="buttom" title="No Disponible"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>
-                    <a href="'. url('storage/'.$r->file).'" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-wrench"></i> Descargar</a>';
+                    <a href="'. url('storage/'.$r->file).'" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-wrench"></i> Descargar</a>
+                    <a href="' . url('/enviados/editar/'.$r->id ) .'" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-edit"></i> Editar</a>';
                 })
     ->make(true);
   }
@@ -57,8 +58,9 @@ class EmisionController extends Controller
                     'enviados.id as id', 'enviados.id_enviado as id_enviado', 'enviados.file as file');
     return Datatables::of($rec)
     ->addColumn('action', function ($r) {
-                    return '<a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="modal" data-target="#mod_eliminar"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>
-                    <a href="'. url('storage/'.$r->file).'" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-wrench"></i> Descargar</a>';
+                      return '<a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="tooltip" data-placement="buttom" title="No Disponible"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>
+                      <a href="'. url('storage/'.$r->file).'" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-wrench"></i> Descargar</a>
+                      <a href="' . url('/enviados/editar/'.$r->id ) .'" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-edit"></i> Editar</a>';
                 })
     ->make(true);
   }

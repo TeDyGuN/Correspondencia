@@ -44,6 +44,12 @@ Route::group(['middleware' => ['auth']], function() {
   Route::get('/correspondencia/ruta/{id}','Correspondencia\CorrespondenciaController@getRuta');
   Route::post('/correspondencia/rutanuevo', 'Correspondencia\CorrespondenciaController@saveRuta');
 
+
+  Route::get('/correspondencia/editar/{id}','Correspondencia\CorrespondenciaController@getEditar');
+  Route::post('/correspondencia/editar/guardar','Correspondencia\CorrespondenciaController@saveEditar');
+  Route::get('/enviados/editar/{id}','Correspondencia\CorrespondenciaController@getEnviadoEditar');
+  Route::post('/enviados/editar/guardar','Correspondencia\CorrespondenciaController@saveEnviadoEditar');
+
   //Enviados
   Route::post('/enviado/nuevo','Correspondencia\CorrespondenciaController@nuevoEnviado');
 

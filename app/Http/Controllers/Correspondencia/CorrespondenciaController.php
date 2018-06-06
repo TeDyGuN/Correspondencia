@@ -39,6 +39,70 @@ class CorrespondenciaController extends Controller{
     $correspondencia = Recibidos::get();
   	return view('Correspondencia/recibida', compact('correspondencia'));
   }
+  public function getEnviadoEditar($id) {
+    $aso = Enviado::where('id', $id)
+                ->first();
+    return view('Correspondencia/enviadoEditar', compact('aso'));
+  }
+  public function saveEnviadoEditar(Request $request) {
+    $user = Enviado::find($request->id);
+		$user->emitente   = $request->emitente;
+		$user->referencia  = $request->referencia;
+    $user->observacion = $request->c_obs;
+    if($request->archivo != null) {
+      $file = $request->file('archivo');
+      //obtenemos el nombre del archivo
+      $nombre = $file->getClientOriginalName();
+      $url = storage_path('app/').$nombre;
+      \Storage::disk('local')->put($nombre,  \File::get($file));
+
+      $user->file = $nombre;
+    }
+		$user->save();
+		return redirect('enviadoGeneral');
+  }
+  public function getEditar($id){
+    
+    $aso = Recibidos::where('recibidos.id', $id)
+                ->first();
+    $procesos = Proceso::join('users as u1', 'procesos.id_user', 'u1.id')
+                ->join('users as u2', 'procesos.id_user_destino', 'u2.id')
+                ->select('u1.nombre as nnombre', 'u1.paterno as npaterno',
+                'u2.nombre as mnombre', 'u2.paterno as mpaterno', 'accion',
+                'procesos.created_at as fecha', 'referencia', 'estado')
+                ->where('id_recibido', $id)
+                ->get();
+    $users = User::get();
+    return view('Correspondencia/editar', compact('users', 'aso', 'procesos'));
+  }  
+  public function saveEditar(Request $request){
+    $user = Recibidos::find($request->id);
+		$user->remitente   = $request->remitente;
+		$user->referencia  = $request->referencia;
+    $user->observacion = $request->c_obs;
+    if($request->archivo != null) {
+      $file = $request->file('archivo');
+      //obtenemos el nombre del archivo
+      $nombre = $file->getClientOriginalName();
+      $url = storage_path('app/').$nombre;
+      \Storage::disk('local')->put($nombre,  \File::get($file));
+
+      $user->file = $nombre;
+    }
+		$user->save();
+		return redirect('recibido');
+    /* $aso = Recibidos::where('recibidos.id', $id)
+                ->first();
+    $procesos = Proceso::join('users as u1', 'procesos.id_user', 'u1.id')
+                ->join('users as u2', 'procesos.id_user_destino', 'u2.id')
+                ->select('u1.nombre as nnombre', 'u1.paterno as npaterno',
+                'u2.nombre as mnombre', 'u2.paterno as mpaterno', 'accion',
+                'procesos.created_at as fecha', 'referencia', 'estado')
+                ->where('id_recibido', $id)
+                ->get();
+    $users = User::get();
+    return view('Correspondencia/editar', compact('users', 'aso', 'procesos')); */
+  }
   public function getDatos($id){
 
 

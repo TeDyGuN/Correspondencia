@@ -32,7 +32,8 @@ class RecibidoController extends Controller
       return Datatables::of($rec)
       ->addColumn('action', function ($r) {
                       return '<a href="' . url('/correspondencia/ruta/'.$r->id ) .'" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-sort"></i> Hoja de Ruta</a>
-                      <a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="modal" data-target="#mod_eliminar"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>';
+                      <a id="e'.$r->id.'" class="btneliminar btn btn-xs btn-warning" data-toggle="modal" data-target="#mod_eliminar"><i class="glyphicon glyphicon-wrench"></i> Eliminar</a>
+                      <a href="' . url('/correspondencia/editar/'.$r->id ) .'" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-edit"></i> Editar</a>';
                   })
 
         ->make(true);
