@@ -13,10 +13,15 @@ use Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+
+use App\Mail\CorrespondenciaPendiente;
+use Illuminate\Support\Facades\Mail;
 class VacacionController extends Controller
 {
     public function getView(){
       $users = User::get();
+      $user = auth()->user();
+      Mail::to($user)->send(new CorrespondenciaPendiente($user));
       return view('Vacacion/index', compact('users'));
     }
     public function save(Request $request){

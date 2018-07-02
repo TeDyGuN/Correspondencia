@@ -25,10 +25,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'nombre' => 'Ted',
-            'paterno' => 'Carrasco',
-            'username' => 'tcarrasco',
-            'email' => 'tcarrasco@fundacion-profin.org',
+            'nombre' => 'Mauricio',
+            'paterno' => 'Landivar',
+            'username' => 'mlandivar',
+            'email' => 'mlandivar@fundacion-profin.org',
             'cargo' => 'Asistente de Sistemas',
             'ci' => '6837705',
             'img' => 'tcarrasco.jpg',
@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
             'v_saldo' => -4,
             'boleta' => 1,
             'id_proyecto' => 1,
-            'password' => bcrypt('tcaprofin')
+            'password' => bcrypt('mlaprofin')
         ]);
         DB::table('users')->insert([
             'nombre' => 'Andrea',
@@ -233,6 +233,21 @@ class UsersTableSeeder extends Seeder
             'boleta' => 0,
             'id_proyecto' => 4,
             'password' => bcrypt('croprofin')
+        ]);
+        DB::table('users')->insert([
+            'nombre' => 'Constancio',
+            'paterno' => 'Ticona',
+            'username' => 'cticona',
+            'email' => 'cticona@fundacion-profin.org',
+            'cargo' => 'Asistente de Administracion',
+            'img' => '',
+            'ROLE' => 'User',
+            'ci' => '2449069',
+            'jefe' => 11,
+            'v_saldo' => 0,
+            'boleta' => 0,
+            'id_proyecto' => 1,
+            'password' => bcrypt('cticona')
         ]);
     }
 }
